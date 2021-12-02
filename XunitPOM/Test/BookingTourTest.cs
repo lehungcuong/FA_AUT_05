@@ -13,7 +13,7 @@ namespace XunitPOM.Test
         private readonly TourDetailPage TourDetailPage;
         private readonly BookingPage BookingPage;
         private readonly ErrorPage ErrorPage;
-        
+
         /// <summary>
         /// Init pages
         /// </summary>
@@ -29,47 +29,13 @@ namespace XunitPOM.Test
         [Theory(DisplayName = "Booking Tour Inline Data Test")]
         [InlineData("Dinh", "Thi", "DinhThi123@gmail.com", "0918023045", "8 King Gorden Cali", "Tung", "Son", "Son", "Tung")]
         [InlineData("Minh", "Thi", "MinhThi123@gmail.com", "0918023041", "9 King Gorden Cali", "Son", "Goku", "Goku", "Son")]
-        public void BookingTourInlineData(string personalfirstname, string personallastname, string email, 
-        string phone, string address, string firsttravellerfirstname, string firsttravellerlastname, 
+        public void BookingTourInlineData(string personalfirstname, string personallastname, string email,
+        string phone, string address, string firsttravellerfirstname, string firsttravellerlastname,
         string secondtravellerfirstname, string secondtravellerlastname)
         {
-            // Create new test case report
-            XunitHelper.CreateTestReport();
-
-            // Validate home page open successfully
-            Assert.True(HomePage.ValidateWebOpenSuccess());
-
-            // choose language english
-            HomePage.SelectLanguageEnglish();
-            HomePage.NavigateToTourPage();
-
-            // Validate tour page open successfully
-            Assert.True(TourPage.ValidateWebOpenSuccess());
-
-            // Get elements and click on third item
-            TourPage.ClickOnThirdTour();
-
-            // Validate tour detail page open successfully
-            Assert.True(TourDetailPage.ValidateTourTitle());
-
-            // Click on button book now
-            TourDetailPage.ClickOnBookNow();
-
-            // Validate booking page open successfully
-            Assert.True(BookingPage.ValidateWebOpenSuccess());
-
-            // Input booking information
-            BookingPage.InputPersonalInformation(personalfirstname, personallastname, email, phone, address);
-            BookingPage.InputTourTravellersInformation(firsttravellerfirstname, firsttravellerlastname, secondtravellerfirstname, secondtravellerlastname);
-
-            // Choose payment method
-            BookingPage.ChoosePaymentMethod();
-
-            // Click on confirm booking
-            BookingPage.TourClickOnConfirmBooking();
-
-            // Validate check out page
-            BrowserFactory.AssertBool(ErrorPage.ValidateCheckOut(), true);
+            // Call to booking tour method
+            BookingTour(personalfirstname, personallastname, email, phone, address, firsttravellerfirstname,
+            firsttravellerlastname, secondtravellerfirstname, secondtravellerlastname);
         }
 
         [Theory(DisplayName = "Booking Tour Class Data Test")]
@@ -78,43 +44,9 @@ namespace XunitPOM.Test
         string phone, string address, string firsttravellerfirstname, string firsttravellerlastname,
         string secondtravellerfirstname, string secondtravellerlastname)
         {
-            // Create new test case report
-            XunitHelper.CreateTestReport();
-
-            // Validate home page open successfully
-            Assert.True(HomePage.ValidateWebOpenSuccess());
-
-            // choose language english
-            HomePage.SelectLanguageEnglish();
-            HomePage.NavigateToTourPage();
-
-            // Validate tour page open successfully
-            Assert.True(TourPage.ValidateWebOpenSuccess());
-
-            // Get elements and click on third item
-            TourPage.ClickOnThirdTour();
-
-            // Validate tour detail page open successfully
-            Assert.True(TourDetailPage.ValidateTourTitle());
-
-            // Click on button book now
-            TourDetailPage.ClickOnBookNow();
-
-            // Validate booking page open successfully
-            Assert.True(BookingPage.ValidateWebOpenSuccess());
-
-            // Input booking information
-            BookingPage.InputPersonalInformation(personalfirstname, personallastname, email, phone, address);
-            BookingPage.InputTourTravellersInformation(firsttravellerfirstname, firsttravellerlastname, secondtravellerfirstname, secondtravellerlastname);
-
-            // Choose payment method
-            BookingPage.ChoosePaymentMethod();
-
-            // Click on confirm booking
-            BookingPage.TourClickOnConfirmBooking();
-
-            // Validate check out page
-            BrowserFactory.AssertBool(ErrorPage.ValidateCheckOut(), true);
+            // Call to booking tour method
+            BookingTour(personalfirstname, personallastname, email, phone, address, firsttravellerfirstname,
+            firsttravellerlastname, secondtravellerfirstname, secondtravellerlastname);
         }
 
         [Theory(DisplayName = "Booking Tour Member Data Test")]
@@ -123,48 +55,23 @@ namespace XunitPOM.Test
         string phone, string address, string firsttravellerfirstname, string firsttravellerlastname,
         string secondtravellerfirstname, string secondtravellerlastname)
         {
-            // Create new test case report
-            XunitHelper.CreateTestReport();
-
-            // Validate home page open successfully
-            Assert.True(HomePage.ValidateWebOpenSuccess());
-
-            // choose language english
-            HomePage.SelectLanguageEnglish();
-            HomePage.NavigateToTourPage();
-
-            // Validate tour page open successfully
-            Assert.True(TourPage.ValidateWebOpenSuccess());
-
-            // Get elements and click on third item
-            TourPage.ClickOnThirdTour();
-
-            // Validate tour detail page open successfully
-            Assert.True(TourDetailPage.ValidateTourTitle());
-
-            // Click on button book now
-            TourDetailPage.ClickOnBookNow();
-
-            // Validate booking page open successfully
-            Assert.True(BookingPage.ValidateWebOpenSuccess());
-
-            // Input booking information
-            BookingPage.InputPersonalInformation(personalfirstname, personallastname, email, phone, address);
-            BookingPage.InputTourTravellersInformation(firsttravellerfirstname, firsttravellerlastname, secondtravellerfirstname, secondtravellerlastname);
-
-            // Choose payment method
-            BookingPage.ChoosePaymentMethod();
-
-            // Click on confirm booking
-            BookingPage.TourClickOnConfirmBooking();
-
-            // Validate check out page
-            BrowserFactory.AssertBool(ErrorPage.ValidateCheckOut(), true);
+            // Call to booking tour method
+            BookingTour(personalfirstname, personallastname, email, phone, address, firsttravellerfirstname,
+            firsttravellerlastname, secondtravellerfirstname, secondtravellerlastname);
         }
 
         [Theory(DisplayName = "Booking Tour Json Data Test")]
-        [JsonReader("TestData.json","Data")]
+        [JsonReader("TestData.json", "Data")]
         public void BookingTourJsonData(string personalfirstname, string personallastname, string email,
+        string phone, string address, string firsttravellerfirstname, string firsttravellerlastname,
+        string secondtravellerfirstname, string secondtravellerlastname)
+        {
+            // Call to booking tour method
+            BookingTour(personalfirstname, personallastname, email, phone, address, firsttravellerfirstname,
+            firsttravellerlastname, secondtravellerfirstname, secondtravellerlastname);
+        }
+
+        public void BookingTour(string personalfirstname, string personallastname, string email,
         string phone, string address, string firsttravellerfirstname, string firsttravellerlastname,
         string secondtravellerfirstname, string secondtravellerlastname)
         {
@@ -172,26 +79,26 @@ namespace XunitPOM.Test
             XunitHelper.CreateTestReport();
 
             // Validate home page open successfully
-            Assert.True(HomePage.ValidateWebOpenSuccess());
+            BrowserFactory.AssertValue(HomePage.ValidateWebOpenSuccess(), AssertType.True, "Can't load home page");
 
             // choose language english
             HomePage.SelectLanguageEnglish();
             HomePage.NavigateToTourPage();
 
             // Validate tour page open successfully
-            Assert.True(TourPage.ValidateWebOpenSuccess());
+            BrowserFactory.AssertValue(TourPage.ValidateWebOpenSuccess(), AssertType.True, "Can't nagivate to tour page");
 
             // Get elements and click on third item
             TourPage.ClickOnThirdTour();
 
             // Validate tour detail page open successfully
-            Assert.True(TourDetailPage.ValidateTourTitle());
+            BrowserFactory.AssertValue(TourDetailPage.ValidateTourTitle(), AssertType.True, "Title of detail page not correct");
 
             // Click on button book now
             TourDetailPage.ClickOnBookNow();
 
             // Validate booking page open successfully
-            Assert.True(BookingPage.ValidateWebOpenSuccess());
+            BrowserFactory.AssertValue(BookingPage.ValidateWebOpenSuccess(), AssertType.True, "Can't nagivate to booking page");
 
             // Input booking information
             BookingPage.InputPersonalInformation(personalfirstname, personallastname, email, phone, address);
@@ -204,7 +111,7 @@ namespace XunitPOM.Test
             BookingPage.TourClickOnConfirmBooking();
 
             // Validate check out page
-            BrowserFactory.AssertBool(ErrorPage.ValidateCheckOut(), true);
+            BrowserFactory.AssertValue(ErrorPage.ValidateCheckOut(), AssertType.True, "Can't nagivate to check out page");
         }
     }
 }

@@ -7,24 +7,22 @@ namespace XunitPOM.Utilities
 {
     public class JsonHelper
     {
-        private readonly static string SolutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+        private static readonly string SolutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+        private static readonly string ConfigPath = SolutionPath + @"\Config\testhost.json";
 
-        private readonly static string configPath = SolutionPath + @"\Config\testhost.json";
-        
         /// <summary>
         /// Load json and parse to dictionary
         /// </summary>
         /// <returns></returns>
-        public static Dictionary<string, string> LoadJson()
+        public static Dictionary<string, string>? LoadJson()
         {
             // check file exist or not
-            if (File.Exists(configPath))
+            if (File.Exists(ConfigPath))
             {
-
                 try
                 {
                     // read file into a string and deserialize JSON to a type
-                    Dictionary<string, string> data = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(configPath));
+                    Dictionary<string, string> data = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(ConfigPath));
                     return data;
                 }
                 catch (Exception ex)
@@ -33,7 +31,7 @@ namespace XunitPOM.Utilities
                 } // end try-catch
 
             }
-            return null;
+            return default;
         }
 
         /// <summary>

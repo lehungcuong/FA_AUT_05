@@ -7,8 +7,8 @@ namespace XunitPOM.Utilities
 {
     public class ReportHelper : IDisposable
     {
-        public static ExtentReports? extent;
-        public static ExtentTest? test;
+        public static ExtentReports extent;
+        public static ExtentTest test;
         private static string currentDate = DateTime.Now.ToString("dd-MM-yyyy-hh-mm-ss");
         private readonly static string SolutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
         private readonly static string ReportLocation = SolutionPath + @"\Reports\" + "Report " + currentDate + ".html";

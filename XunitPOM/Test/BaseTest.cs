@@ -17,10 +17,10 @@ namespace XunitPOM.Test
         public BaseTest()
         {
             // Create new driver and get config from configuaration file
-            browserFactory = new BrowserFactory(ConfigHelper.GetValue("Driver"), ConfigHelper.GetValue("URL"));
-            
+            //browserFactory = new BrowserFactory(ConfigHelper.GetValue("Driver"), ConfigHelper.GetValue("URL"));
+
             // Create new driver and get config from json file
-            //DriverFactory = new DriverFactory(JsonHelper.getValue("Driver"), JsonHelper.getValue("URL"));
+            browserFactory = new BrowserFactory(JsonHelper.getValue("Driver"), JsonHelper.getValue("URL"));
         }
 
         /// <summary>

@@ -1,11 +1,14 @@
+using FluentAssertions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Threading;
+using System.Threading.Tasks;
 using Xunit;
 using XunitPOM.Utilities;
 
@@ -16,17 +19,17 @@ namespace WebDriver
         private static IJavaScriptExecutor Jse;
         private static WebDriverWait wait;
         private static Actions actions;
-        private readonly TimeSpan timeout = TimeSpan.FromSeconds(30);
-        public IWebDriver driver;
+        private static readonly TimeSpan timeout = TimeSpan.FromSeconds(10); 
         private static readonly string SolutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.Parent.FullName;
         public static bool status;
+        public IWebDriver driver;
 
         public BrowserFactory(string type, string url) 
         {
             driver = GetWebDriver(type, url);
-            wait = new WebDriverWait(driver, timeout);
             actions = new Actions(driver);
             Jse = (IJavaScriptExecutor)driver;
+            wait = new WebDriverWait(driver, timeout);
         }
 
         /// <summary>
@@ -39,7 +42,9 @@ namespace WebDriver
         {
             IWebDriver driver;
             string driverFolder = SolutionPath  + @"\WebDriver\WebDriver\" + $"{type}" + "Driver";
+
             BrowserType driverType = type.Equals("Chrome") ? BrowserType.ChromeDriver : BrowserType.FirefoxDriver;
+
             ChromeOptions options = new ChromeOptions();
             options.AddArguments("start-maximized");
             switch (driverType)
@@ -89,8 +94,8 @@ namespace WebDriver
         public static void Click(IWebElement element)
         {
             Jse.ExecuteScript("arguments[0].scrollIntoView(false);", element);
-            //IWebElement test = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(element));
-            Thread.Sleep(500);
+            WaitFor(() => element.Enabled && element.Displayed == true, 10).Should().BeTrue();
+            actions.MoveToElement(element).Build().Perform();
             element.Click();
         }
 
@@ -151,33 +156,64 @@ namespace WebDriver
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type"></param>
-        public static void AssertBool(bool value, bool type)
+        public static void AssertValue(bool value, AssertType type, string message)
         {
             switch (type)
             {
-                case true:
-                    try
-                    {
-                        Assert.True(value);
-                        status = true;
-                    }
-                    catch
-                    {
-                        status = false;
-                    }
+                case AssertType.True:
+                    value.Should().BeTrue(message);
                     break;
-                case false:
-                    try
-                    {
-                        Assert.False(value);
-                        status = true;
-                    }
-                    catch
-                    {
-                        status = false;
-                    }
+                case AssertType.False:
+                    value.Should().BeFalse(message);
                     break;
             }
+        }
+
+        /// <summary>
+        /// Assert two string value
+        /// </summary>
+        /// <param name="value1"></param>
+        /// <param name="value2"></param>
+        public static void AssertValue(string value1, string value2, string message)
+        {
+            value1.Should().Be(value2, message);
+        }
+
+        /// <summary>
+        /// Wait helper
+        /// </summary>
+        /// <param name="condition"></param>
+        /// <param name="timeout"></param>
+        /// <returns></returns>
+        public static bool WaitFor(
+        Func<bool> condition,
+        int timeout = 5)
+        {
+            var watch = new Stopwatch();
+            bool result = false;
+            watch.Start();
+            while (true)
+            {
+                try
+                {
+                    if (condition())
+                    {
+                        result = true;
+                        break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Stop wait helper
+                    if (ex.Message.Contains("Testcase Fail")) throw;
+                }
+                if (watch.Elapsed.TotalSeconds >= timeout)
+                {
+                    watch.Stop();
+                    break;
+                }
+            }
+            return result;
         }
     }
 }
