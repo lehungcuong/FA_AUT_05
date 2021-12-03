@@ -1,0 +1,52 @@
+﻿<Properties StartupConfiguration="{DA1EA0EF-DF1D-4F58-A8C7-93D5B57A60B9}|Default">
+  <MonoDevelop.Ide.ItemProperties.PageObjectModel PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ConfigPOM/Browser.cs">
+    <Files>
+      <File FileName="PageObjectModel/TestPage/BasePage.cs" Line="13" Column="29" />
+      <File FileName="PageObjectModel/TestBookFlight/TestBookingFlight.cs" Line="21" Column="21" />
+      <File FileName="ConfigPOM/Browser.cs" Line="30" Column="65" />
+      <File FileName="PageObjectModel/Utilities/JsonHelper.cs" Line="9" Column="6" />
+      <File FileName="PageObjectModel/TestBookFlight/BookFlightBase.cs" Line="11" Column="29" />
+      <File FileName="PageObjectModel/TestPage/HomePage.cs" Line="24" Column="2" />
+      <File FileName="PageObjectModel/TestPage/BookFlightPages.cs" Line="1" Column="1" />
+      <File FileName="PageObjectModel/TestPage/Config.Json" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="PageObjectModel" expanded="True">
+            <Node name="ConfigPOM" expanded="True">
+              <Node name="Webdriver" expanded="True">
+                <Node name="GoogleDriver" expanded="True" />
+              </Node>
+              <Node name="Browser.cs" selected="True" />
+            </Node>
+            <Node name="PageObjectModel" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="TestBookFlight" expanded="True" />
+              <Node name="TestPage" expanded="True" />
+              <Node name="Utilities" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="PageObjectModel" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="app.config" Name="app.config">
+      <Items>
+        <StartupItem ItemId="{DA1EA0EF-DF1D-4F58-A8C7-93D5B57A60B9}" ItemName="PageObjectModel" ConfigurationId="Default" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
+</Properties>
