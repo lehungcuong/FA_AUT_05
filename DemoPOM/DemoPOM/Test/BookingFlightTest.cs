@@ -1,6 +1,5 @@
 ﻿using DemoPOM.DataTest;
 using DemoPOM.Pages;
-using FluentAssertions;
 using System;
 using System.Collections.Generic;
 using Xunit;
@@ -46,37 +45,40 @@ namespace DemoPOM.Test
         [JsonReader("jsconfig.json", "data")]
         public void BookingFlightPage(string flightFrom, string flightTo, string dateTime)
         {
-            Assert.True(homePage.NavigateWebSuccess());
+            homePage.NavigatePageSuccess("PHPTRAVELS - PHPTRAVELS");
             homePage.NavigateToFlightPage();
+            flightPage.NavigatePageSuccess("Search Hotels - PHPTRAVELS");
             flightPage.InputFlightInformation(flightFrom, flightTo, dateTime);
-            Assert.True(bookingPage.ValidateWebTitle());
+            flightPage.ClickToSearchButton();
+            bookingPage.NavigatePageSuccess("Flights - PHPTRAVELS");
             bookingPage.NavigateToConfirmBookingpage();
-            Assert.True(confirmBookingPage.ValidateWebTitle());
+            confirmBookingPage.NavigatePageSuccess("Flight Booking - PHPTRAVELS");
             confirmBookingPage.InputUserInformation();
             confirmBookingPage.InputTravellerInformation();
             confirmBookingPage.PaymentConfirm();
             confirmBookingPage.ClickToTermAndConditionButton();
             confirmBookingPage.NavigateToBookingSuccessPage();
-            bookingSuccessPage.ValidateWebTitle();
-            
+            bookingSuccessPage.NavigatePageSuccess("Flight Invoice - PHPTRAVELS");           
         }
 
         [Theory]
         [MemberData(nameof(Data))]
         public void BookingFlightPage1(string flightFrom, string flightTo, string dateTime)
         {
-            Assert.True(homePage.NavigateWebSuccess());
+            homePage.NavigatePageSuccess("PHPTRAVELS - PHPTRAVELS");
             homePage.NavigateToFlightPage();
+            flightPage.NavigatePageSuccess("Search Hotels - PHPTRAVELS");
             flightPage.InputFlightInformation(flightFrom, flightTo, dateTime);
-            Assert.True(bookingPage.ValidateWebTitle());
+            flightPage.ClickToSearchButton();
+            bookingPage.NavigatePageSuccess("Flights - PHPTRAVELS");
             bookingPage.NavigateToConfirmBookingpage();
-            Assert.True(confirmBookingPage.ValidateWebTitle());
+            confirmBookingPage.NavigatePageSuccess("Flight Booking - PHPTRAVELS");
             confirmBookingPage.InputUserInformation();
             confirmBookingPage.InputTravellerInformation();
             confirmBookingPage.PaymentConfirm();
             confirmBookingPage.ClickToTermAndConditionButton();
             confirmBookingPage.NavigateToBookingSuccessPage();
-            bookingSuccessPage.ValidateWebTitle();
+            bookingSuccessPage.NavigatePageSuccess("Flight Invoice - PHPTRAVELS");
         }
 
         [Theory]
@@ -84,41 +86,39 @@ namespace DemoPOM.Test
         [InlineData("DJO", "LOO", "04-12-2021")]
         public void BookingFlightPage2(string flightFrom, string flightTo, string dateTime)
         {
-            Assert.True(homePage.NavigateWebSuccess());
+            homePage.NavigatePageSuccess("PHPTRAVELS - PHPTRAVELS");
             homePage.NavigateToFlightPage();
+            flightPage.NavigatePageSuccess("Search Hotels - PHPTRAVELS");
             flightPage.InputFlightInformation(flightFrom, flightTo, dateTime);
-            Assert.True(bookingPage.ValidateWebTitle());
+            flightPage.ClickToSearchButton();
+            bookingPage.NavigatePageSuccess("Flights - PHPTRAVELS");
             bookingPage.NavigateToConfirmBookingpage();
-            Assert.True(confirmBookingPage.ValidateWebTitle());
+            confirmBookingPage.NavigatePageSuccess("Flight Booking - PHPTRAVELS");
             confirmBookingPage.InputUserInformation();
             confirmBookingPage.InputTravellerInformation();
             confirmBookingPage.PaymentConfirm();
             confirmBookingPage.ClickToTermAndConditionButton();
             confirmBookingPage.NavigateToBookingSuccessPage();
-            bookingSuccessPage.ValidateWebTitle();
+            bookingSuccessPage.NavigatePageSuccess("Flight Invoice - PHPTRAVELS");
         }
 
         [Fact(DisplayName = "Booking Flight")]
         public void BookingFlight()
         {
             homePage.NavigatePageSuccess("PHPTRAVELS - PHPTRAVELS");
-            //Assert.True(homePage.NavigateWebSuccess());
             homePage.NavigateToFlightPage();
+            flightPage.NavigatePageSuccess("Search Hotels - PHPTRAVELS");
             flightPage.InputFlightInformation1();
-            flightPage.ClickToBookingButton();
-            bool result1 = bookingPage.NavigateWebSuccess();
-            result1.Should().BeTrue(because: "Go to page unsuccessful!");
-            Assert.True(bookingPage.ValidateWebTitle());
+            flightPage.ClickToSearchButton();
+            bookingPage.NavigatePageSuccess("Flights - PHPTRAVELS");
             bookingPage.NavigateToConfirmBookingpage();
-            bool result2 = confirmBookingPage.NavigateWebSuccess();
-            result2.Should().BeTrue(because: "Go to page unsuccessful!");
-            Assert.True(confirmBookingPage.ValidateWebTitle());
+            confirmBookingPage.NavigatePageSuccess("Flight Booking - PHPTRAVELS");
             confirmBookingPage.InputUserInformation();
             confirmBookingPage.InputTravellerInformation();
             confirmBookingPage.PaymentConfirm();
             confirmBookingPage.ClickToTermAndConditionButton();
             confirmBookingPage.NavigateToBookingSuccessPage();
-            bookingSuccessPage.ValidateWebTitle();
+            bookingSuccessPage.NavigatePageSuccess("Flight Invoice - PHPTRAVELS");
         }
     }
 

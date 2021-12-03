@@ -13,9 +13,9 @@ namespace DemoPOM.Pages
         IWebElement BtnFlight => Browser.GetElement(By.XPath("//a[@href='https://phptravels.net/flights']"));
         IWebElement homePageTitle => Browser.GetElement(By.XPath(""));
 
-        public void NavigatePageSuccess(string pageTitle, IWebDriver driver)
+        public void NavigatePageSuccess(string pageTitle)
         {
-            Browser.ValidateWebTitle(pageTitle, driver);
+           Browser.ValidateWebTitle("PHPTRAVELS - PHPTRAVELS");
         }
 
         //public static bool NavigateHomePageSuccess()

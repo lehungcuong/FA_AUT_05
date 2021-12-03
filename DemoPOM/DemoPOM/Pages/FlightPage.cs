@@ -15,11 +15,11 @@ namespace DemoPOM.Pages
         IWebElement TxtFlightFrom => Browser.GetElement(By.XPath("//input[@id='autocomplete']"));
         IWebElement TxtDestination => Browser.GetElement(By.XPath("//input[@id='autocomplete2']"));
         IWebElement TxtDateTime => Browser.GetElement(By.XPath("(//input[@id='departure'])[1]"));
-        
 
-        public void NavigateFlightPageSuccess(string pageTitle, IWebDriver driver)
+
+        public void NavigatePageSuccess(string pageTitle)
         {
-            Browser.ValidateWebTitle(pageTitle, driver);
+            Browser.ValidateWebTitle("Search Hotels - PHPTRAVELS");
         }
 
         public void InputFlightInformation(string from, string to, string date)
@@ -36,7 +36,7 @@ namespace DemoPOM.Pages
             Browser.EnterText(TxtDateTime, "04-12-2021");
         }
 
-        public BookingPage ClickToBookingButton()
+        public BookingPage ClickToSearchButton()
         {
             Browser.ClickToElement(BtnSearch);            
             return new BookingPage(browser);

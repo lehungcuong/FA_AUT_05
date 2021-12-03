@@ -11,17 +11,11 @@ namespace DemoPOM.Pages
         }
 
         IWebElement BtnBooking => Browser.GetElement(By.XPath("//button[@id ='flights-search']"));
-        IWebElement bookingPageTitle => Browser.GetElement(By.XPath(""));
 
-        public void NavigatePageSuccess(string pageTitle, IWebDriver driver)
+        public void NavigatePageSuccess(string pageTitle)
         {
-            Browser.ValidateWebTitle(pageTitle, driver);
+            Browser.ValidateWebTitle(pageTitle);
         }
-
-        //public bool NavigatePageSuccess()
-        //{
-        //    return Browser.ValidateWebTitle("Flights - PHPTRAVELS", );
-        //}
 
         public ConfirmBookingPage NavigateToConfirmBookingpage()
         {

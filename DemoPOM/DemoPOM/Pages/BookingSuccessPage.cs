@@ -11,14 +11,9 @@ namespace DemoPOM.Pages
 
         }
 
-        //public bool NavigatePageSuccess()
-        //{
-        //    return Browser.ValidateWebTitle("Flight Invoice - PHPTRAVELS" );
-        //}
-
-        public void NavigatePageSuccess(string pageTitle, IWebDriver Driver)
+        public void NavigatePageSuccess(string pageTitle)
         {
-            Browser.ValidateWebTitle(pageTitle, Driver);
+            Browser.ValidateWebTitle(pageTitle);
         }
 
     }

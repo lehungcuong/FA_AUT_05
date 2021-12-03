@@ -54,9 +54,9 @@ namespace Project1.WebDriver
         }
 
 
-        public static bool ValidateWebTitle(string pageTitle, IWebDriver Driver)
+        public static bool ValidateWebTitle(string pageTitle)
         {
-            bool assert = (Driver.Title == pageTitle) ? true : false;
+            bool assert = (Browser.Driver.Title == pageTitle) ? true : false;
             assert.Should().BeTrue("Go to page unsuccessful!");
             return assert;
         }
@@ -65,7 +65,7 @@ namespace Project1.WebDriver
 
     public class BrowserFactory
     {
-        // Get Browser Chrome or FireFox 
+        // Get Browser: Chrome or FireFox 
         public static IWebDriver GetWebDriver(BrowserType type)
         {
             IWebDriver driver;

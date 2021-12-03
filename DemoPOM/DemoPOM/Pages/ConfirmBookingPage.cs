@@ -38,16 +38,9 @@ namespace DemoPOM.Pages
         IWebElement BtnAgree => Browser.GetElement(By.XPath("//label[@for='agreechb']"));
         IWebElement BtnConfirm => Browser.GetElement(By.XPath("//button[@id='booking']"));
 
-        IWebElement confirmBookingPageTitle => Browser.GetElement(By.XPath(""));
-
-        public void NavigatePageSuccess(string pageTitle, IWebDriver driver)
+        public void NavigatePageSuccess(string pageTitle)
         {
-            Browser.ValidateWebTitle(pageTitle, driver);
-        }
-
-        public bool NavigatePageSuccess()
-        {
-            return Browser.ValidateWebTitle("Flight Booking - PHPTRAVELS", );
+            Browser.ValidateWebTitle(pageTitle);
         }
 
         public void InputUserInformation()
