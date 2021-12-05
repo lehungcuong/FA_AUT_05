@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using XUnitTest_POM.Constraints;
 using XUnitTest_POM_Webdriver;
 
 namespace XUnitTest_POM.Page
@@ -27,7 +26,6 @@ namespace XUnitTest_POM.Page
         {
             BrowserFactory.SendKeys(TxtFlyingFrom, "DUB");
             BrowserFactory.SendKeys(TxtToDestination, "LCG");
-            BrowserFactory.ClearText(TxtDepartureDate);
             BrowserFactory.SendKeys(TxtDepartureDate, "27-11-2021");
             BrowserFactory.ClickElement(BtnSearch);
         }

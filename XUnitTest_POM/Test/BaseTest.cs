@@ -1,7 +1,6 @@
 ﻿using System;
 using XUnitTest_POM.Constraints;
 using XUnitTest_POM_Webdriver;
-using static XUnitTest_POM_Webdriver.BrowserFactory;
 
 namespace XUnitTest_POM.Test
 {

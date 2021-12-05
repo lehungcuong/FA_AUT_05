@@ -1,10 +1,8 @@
-﻿using System.Threading;
-using Xunit;
+﻿using Xunit;
 using XUnitTest_POM.Constraints;
 using XUnitTest_POM.Page;
 using XUnitTest_POM.TestData;
 using XUnitTest_POM_Webdriver;
-using FluentAssertions;
 
 namespace XUnitTest_POM.Test
 {
@@ -33,26 +31,25 @@ namespace XUnitTest_POM.Test
             string titleTravellerTour2, string firstNameTravellerTour2, string lastNameTravellerTour2)
         {
             //Assert Homepage
-            homePage.VerifyHomePage.Should().BeTrue(because: "Homepage Fail");
-            //Assert.True(homePage.VerifyHomePage);
+            BrowserFactory.FluentAssert(homePage.VerifyHomePage, "Homepage Fail");
 
             //Click on Tours page
             homePage.ClickTousrPage();
 
             //Assert Tours page title
-            ChooseTour.VerifyToursPageTitle.Should().BeTrue(because: "Tourspage Fail");
+            BrowserFactory.FluentAssert(ChooseTour.VerifyToursPageTitle, "Tourspage Fail");
 
             //Choose third tour from Tours list
             chooseTour.ChooseThirdTour();
 
             //Assert tour was choosen
-            chooseTour.VerifyTourWasChosen.Should().BeTrue(because: "Tour was choosen Fail");
+            BrowserFactory.FluentAssert(chooseTour.VerifyTourWasChosen, "Tour was choosen Fail");
 
             //Book first tour
             chooseTour.BookTour();
 
             //Assert Tour Booking page text
-            bookingToursPage.VerifyTourBookingPageText.Should().BeTrue(because: "Tour Booking page Fail");
+            BrowserFactory.FluentAssert(bookingToursPage.VerifyTourBookingPageText, "Tour Booking page Fail");
 
             //Fill all personal information
             bookingToursPage.InputPersonalInformation(firstNamePersonal, lastNamePersonal, emailPersonal, phonePersonal,
@@ -66,8 +63,7 @@ namespace XUnitTest_POM.Test
             bookingToursPage.ConfirmBooking();
 
             // Assert book tour page 
-            BookingToursPage.VerifyBookTourPageTitle.Should().BeTrue(because: "Book tour page Fail");
-            Thread.Sleep(1000);
+            BrowserFactory.FluentAssert(BookingToursPage.VerifyBookTourPageTitle, "Book tour page Fail");
         }
         #endregion 
 

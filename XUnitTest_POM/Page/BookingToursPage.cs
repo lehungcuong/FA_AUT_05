@@ -1,6 +1,4 @@
 ﻿using OpenQA.Selenium;
-using System.Threading;
-using XUnitTest_POM.Constraints;
 using XUnitTest_POM_Webdriver;
 
 namespace XUnitTest_POM.Page
@@ -68,9 +66,9 @@ namespace XUnitTest_POM.Page
         /// </summary>
         public void ConfirmBooking()
         {
-            BrowserFactory.ClickScroll(RatioPaymentMethod);
-            BrowserFactory.ClickScroll(CkeckboxTermCondition);
-            BrowserFactory.ClickScroll(BtnConfirmBooking);
+            BrowserFactory.ClickElement(RatioPaymentMethod);
+            BrowserFactory.ClickElement(CkeckboxTermCondition);
+            BrowserFactory.ClickElement(BtnConfirmBooking);
         }
 
         /// <summary>

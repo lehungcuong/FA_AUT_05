@@ -1,7 +1,5 @@
 ﻿using OpenQA.Selenium;
 using System.Collections.Generic;
-using System.Threading;
-using XUnitTest_POM.Constraints;
 using XUnitTest_POM_Webdriver;
 
 namespace XUnitTest_POM.Page
@@ -27,7 +25,7 @@ namespace XUnitTest_POM.Page
         /// </summary>
         public void ChooseThirdTour()
         {
-            BrowserFactory.ClickScroll(BtnTour);
+            BrowserFactory.ClickElement(BtnTour);
         }
 
         /// <summary>
@@ -40,7 +38,7 @@ namespace XUnitTest_POM.Page
         /// </summary>
         public void BookTour()
         {
-            BrowserFactory.ClickScroll(BtnBookNow);
+            BrowserFactory.ClickElement(BtnBookNow);
         }
     }
 }
