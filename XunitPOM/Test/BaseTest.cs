@@ -2,7 +2,6 @@
 using Xunit;
 using XunitPOM.Utilities;
 using WebDriver;
-using Xunit.Abstractions;
 using AventStack.ExtentReports;
 
 namespace XunitPOM.Test
@@ -12,15 +11,16 @@ namespace XunitPOM.Test
         public BrowserFactory browserFactory;
         public FactAttribute FactAttribute;
         public XunitHelper XunitHelper;
-        public ITestOutputHelper output;
 
         public BaseTest()
         {
             // Create new driver and get config from configuaration file
-            //browserFactory = new BrowserFactory(ConfigHelper.GetValue("Driver"), ConfigHelper.GetValue("URL"));
+            browserFactory = new BrowserFactory(ConfigHelper.GetValue("Driver"), ConfigHelper.GetValue("URL"));
 
             // Create new driver and get config from json file
-            browserFactory = new BrowserFactory(JsonHelper.getValue("Driver"), JsonHelper.getValue("URL"));
+            //browserFactory = new BrowserFactory(JsonHelper.GetValueByKeyConfig("Driver"), JsonHelper.GetValueByKeyConfig("URL"));
+
+
         }
 
         /// <summary>

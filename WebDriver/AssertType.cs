@@ -3,6 +3,8 @@
     public enum AssertType
     {
         True,
-        False
+        False,
+        Null,
+        NotNull
     }
 }

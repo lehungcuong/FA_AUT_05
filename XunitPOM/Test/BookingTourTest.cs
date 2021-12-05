@@ -79,26 +79,26 @@ namespace XunitPOM.Test
             XunitHelper.CreateTestReport();
 
             // Validate home page open successfully
-            BrowserFactory.AssertValue(HomePage.ValidateWebOpenSuccess(), AssertType.True, "Can't load home page");
+            BrowserFactory.AssertValueBool(HomePage.ValidateWebOpenSuccess(), AssertType.True, "Can't load home page");
 
             // choose language english
             HomePage.SelectLanguageEnglish();
             HomePage.NavigateToTourPage();
 
             // Validate tour page open successfully
-            BrowserFactory.AssertValue(TourPage.ValidateWebOpenSuccess(), AssertType.True, "Can't nagivate to tour page");
+            BrowserFactory.AssertValueBool(TourPage.ValidateWebOpenSuccess(), AssertType.True, "Can't nagivate to tour page");
 
             // Get elements and click on third item
             TourPage.ClickOnThirdTour();
 
             // Validate tour detail page open successfully
-            BrowserFactory.AssertValue(TourDetailPage.ValidateTourTitle(), AssertType.True, "Title of detail page not correct");
+            BrowserFactory.AssertValueBool(TourDetailPage.ValidateTourTitle(), AssertType.True, "Title of detail page not correct");
 
             // Click on button book now
             TourDetailPage.ClickOnBookNow();
 
             // Validate booking page open successfully
-            BrowserFactory.AssertValue(BookingPage.ValidateWebOpenSuccess(), AssertType.True, "Can't nagivate to booking page");
+            BrowserFactory.AssertValueBool(BookingPage.ValidateWebOpenSuccess(), AssertType.True, "Can't nagivate to booking page");
 
             // Input booking information
             BookingPage.InputPersonalInformation(personalfirstname, personallastname, email, phone, address);
@@ -111,7 +111,7 @@ namespace XunitPOM.Test
             BookingPage.TourClickOnConfirmBooking();
 
             // Validate check out page
-            BrowserFactory.AssertValue(ErrorPage.ValidateCheckOut(), AssertType.True, "Can't nagivate to check out page");
+            BrowserFactory.AssertValueBool(ErrorPage.ValidateCheckOut(), AssertType.True, "Can't nagivate to check out page");
         }
     }
 }

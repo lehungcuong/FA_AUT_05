@@ -156,7 +156,7 @@ namespace WebDriver
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type"></param>
-        public static void AssertValue(bool value, AssertType type, string message)
+        public static void AssertValueBool(bool value, AssertType type, string message)
         {
             switch (type)
             {
@@ -170,11 +170,40 @@ namespace WebDriver
         }
 
         /// <summary>
+        /// Assert value null or not
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="type"></param>
+        /// <param name="message"></param>
+        public static void AssertValueNullOrNot(string value, AssertType type, string message)
+        {
+            switch (type)
+            {
+                case AssertType.Null:
+                    value.Should().BeNull(message);
+                    break;
+                case AssertType.NotNull:
+                    value.Should().NotBeNull(message);
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Assert value empty
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="message"></param>
+        public static void AssertValueEmpty(string value, string message)
+        {
+            value.Should().BeEmpty();
+        }
+
+        /// <summary>
         /// Assert two string value
         /// </summary>
         /// <param name="value1"></param>
         /// <param name="value2"></param>
-        public static void AssertValue(string value1, string value2, string message)
+        public static void AssertValueEqual(string value1, string value2, string message)
         {
             value1.Should().Be(value2, message);
         }
