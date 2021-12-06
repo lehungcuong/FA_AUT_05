@@ -21,8 +21,8 @@ namespace DemoPOM.Test
         public void CreateUsers()
         {
             string jsString = @"{
-                                    ""id"": ""1"",
-                                    ""name"": ""anna"",
+                                    ""id"": ""2"",
+                                    ""name"": ""Diem"",
                                     ""job"": ""member""
                                 }";
             RestApiHelper<CreateUser> restApi = new RestApiHelper<CreateUser>();
@@ -30,9 +30,9 @@ namespace DemoPOM.Test
             var request = restApi.CreatePostRequest(jsString);
             var respone = restApi.GetResponse(restUrl, request);
             CreateUser content = restApi.GetContent<CreateUser>(respone);
-            
-            Assert.Equal("1", content.id);
-            Assert.Equal("anna", content.name);
+
+            //Assert.Equal("2", content.id);
+            Assert.Equal("Diem", content.name);
             Assert.Equal("member", content.job);
         }
 
@@ -69,7 +69,7 @@ namespace DemoPOM.Test
             var restUrl = restApi.SetUrl("users/6");
             var request = restApi.CreateDeleteRequest();
             var respone = restApi.GetResponse(restUrl, request);
-            
+
             if (respone.IsSuccessful)
             {
                 output.WriteLine("Status code: {0}", respone.StatusCode);
