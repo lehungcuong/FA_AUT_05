@@ -47,10 +47,7 @@ namespace WebDriver
             BrowserType driverType = type.Equals("Chrome") ? BrowserType.ChromeDriver : BrowserType.FirefoxDriver;
 
             ChromeOptions options = new ChromeOptions();
-            options.AddArguments("--no-sandbox");
             options.AddArguments("--start-maximized");
-            options.AddArguments("--disable-gpu");
-            options.AddArguments("--disable-extensions");
             switch (driverType)
             {
                 case BrowserType.ChromeDriver:
@@ -101,6 +98,10 @@ namespace WebDriver
             element.Click();
         }
 
+        /// <summary>
+        /// Click by javascript
+        /// </summary>
+        /// <param name="element"></param>
         public static void JsClick(IWebElement element)
         {
             Jse.ExecuteScript("arguments[0].click();", element);
@@ -112,9 +113,9 @@ namespace WebDriver
         /// <param name="element"></param>
         public static void ScrollAndClick(IWebElement element)
         {
-            Jse.ExecuteScript("arguments[0].scrollIntoView(false);", element);
+            Jse.ExecuteScript("arguments[0].scrollIntoView(false);", element);  
             Thread.Sleep(1000);
-            WaitFor(() => element.Enabled && element.Displayed == true, 10);
+            WaitFor(() => element.Enabled && element.Displayed == true, 30).Should().BeTrue();
             element.Click();
         }
 
