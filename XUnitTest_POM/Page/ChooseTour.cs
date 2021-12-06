@@ -18,7 +18,7 @@ namespace XUnitTest_POM.Page
         /// <summary>
         /// Verify Tours page title
         /// </summary>
-        public static bool VerifyToursPageTitle => BrowserFactory.GetTitle().Equals("Search Tours - PHPTRAVELS");
+        public bool VerifyToursPageTitle => BrowserFactory.GetTitle().Equals("Search Tours - PHPTRAVELS");
 
         /// <summary>
         /// Choose third tour from Tours list

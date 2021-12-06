@@ -37,7 +37,7 @@ namespace XUnitTest_POM.Test
             homePage.ClickTousrPage();
 
             //Assert Tours page title
-            BrowserFactory.FluentAssert(ChooseTour.VerifyToursPageTitle, "Tourspage Fail");
+            BrowserFactory.FluentAssert(chooseTour.VerifyToursPageTitle, "Tourspage Fail");
 
             //Choose third tour from Tours list
             chooseTour.ChooseThirdTour();

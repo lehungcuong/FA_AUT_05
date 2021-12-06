@@ -36,7 +36,7 @@ namespace XUnitTest_POM.Test
         /// <summary>
         /// Test of Booking Flights Test
         /// </summary>
-        [Fact(DisplayName = "Booking Flight")]
+        //[Fact(DisplayName = "Booking Flight")]
         public void BookingFlight()
         {
             //Assert Homepage
