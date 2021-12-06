@@ -62,8 +62,8 @@ namespace XUnitTest_POM.Test
             //Comfirm your booking information
             bookingToursPage.ConfirmBooking();
 
-            // Assert book tour page 
-            BrowserFactory.FluentAssert(BookingToursPage.VerifyBookTourPageTitle, "Book tour page Fail");
+            //// Assert book tour page 
+            //BrowserFactory.FluentAssert(BookingToursPage.VerifyBookTourPageTitle, "Book tour page Fail");
         }
         #endregion 
 
