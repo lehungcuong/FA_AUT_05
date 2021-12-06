@@ -91,7 +91,7 @@ namespace XunitPOM.Utilities
         /// <summary>
         /// Initialize get request
         /// </summary>
-        private void InitiallizeGetRequest()
+        private void InitiallizeGetRequest(params Parameter[] parameters)
         {
             RestRequest = new RestRequest(Method.GET);
             SetHeader();

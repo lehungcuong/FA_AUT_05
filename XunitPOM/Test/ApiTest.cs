@@ -55,10 +55,10 @@ namespace XunitPOM.Test
 
             // Get user information by API and compare with value in TestData
             var GetUserInformation = apiHelper.SendGetRequest<Dictionary<string, string>>(ConfigHelper.GetValue("PathGetUser"), JsonHelper.GetValueByKeySavedData("userID"));
-            BrowserFactory.AssertValueBool(GetUserInformation.ContainsKey("userID") && GetUserInformation.ContainsKey("username"), AssertType.True, "Can't find userID or userName");
+            BrowserFactory.AssertValueBool(GetUserInformation.ContainsKey("userId") && GetUserInformation.ContainsKey("username"), AssertType.True, "Can't find userID or userName");
             foreach (var element in GetUserInformation)
             {
-                if (element.Key == "userID")
+                if (element.Key == "userId")
                 {
                     BrowserFactory.AssertValueEqual(element.Value, JsonHelper.GetValueByKeySavedData("userID"), "Wrong userid from API !");
                 }

@@ -26,6 +26,7 @@ namespace XunitPOM.Utilities
                 {
                     Dictionary<string, string> RawData = new();
                     Dictionary<string, string> SaveData = new();
+
                     // read file into a string and deserialize JSON to a type
                     Dictionary<string, string> data = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(SolutionPath + path));
                     foreach (var e in data)
