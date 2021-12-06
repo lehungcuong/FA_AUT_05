@@ -17,6 +17,7 @@ namespace DemoPOM.Test
         }
 
         // Test case create a new user
+        [Trait ("Category","Test API")]
         [Fact]
         public void CreateUsers()
         {
