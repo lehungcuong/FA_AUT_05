@@ -25,7 +25,7 @@ namespace XunitPOM.Pages
 
         public FlightSearchPage ClickOnThirdTour()
         {
-            BtnThirdItem.Click();
+            BrowserFactory.ScrollAndClick(BtnThirdItem);
             return new FlightSearchPage(driver);
         }
 
