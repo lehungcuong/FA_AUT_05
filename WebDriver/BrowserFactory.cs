@@ -104,7 +104,7 @@ namespace WebDriver
         public static void ScrollAndClick(IWebElement element)
         {
             Jse.ExecuteScript("arguments[0].scrollIntoView(false);", element);
-            Thread.Sleep(500);
+            Thread.Sleep(1000);
             WaitFor(() => element.Enabled && element.Displayed == true, 10);
             element.Click();
         }
