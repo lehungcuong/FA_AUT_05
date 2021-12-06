@@ -100,7 +100,7 @@ namespace XunitPOM.Pages
 
         public ErrorPage TourClickOnConfirmBooking()
         {
-            BrowserFactory.ScrollAndClick(BtnBooking);
+            BrowserFactory.JsClick(BtnBooking);
             return new ErrorPage(driver);
         }
 

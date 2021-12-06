@@ -35,7 +35,7 @@ namespace XunitPOM.Utilities
         public void Dispose()
         {
             extent.Flush();
-            File.Move(@"C:\Users\baola\source\repos\XunitPOM\XunitPOM\Reports\" + "index.html", ReportLocation);
+            File.Move(SolutionPath + @"\Reports\" + "index.html", ReportLocation);
         }
     }
 }
