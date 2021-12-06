@@ -5,6 +5,7 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
@@ -46,7 +47,10 @@ namespace WebDriver
             BrowserType driverType = type.Equals("Chrome") ? BrowserType.ChromeDriver : BrowserType.FirefoxDriver;
 
             ChromeOptions options = new ChromeOptions();
-            options.AddArguments("start-maximized");
+            options.AddArguments("--no-sandbox");
+            options.AddArguments("--start-maximized");
+            options.AddArguments("--disable-gpu");
+            options.AddArguments("--disable-extensions");
             switch (driverType)
             {
                 case BrowserType.ChromeDriver:
@@ -97,6 +101,11 @@ namespace WebDriver
             element.Click();
         }
 
+        public static void JsClick(IWebElement element)
+        {
+            Jse.ExecuteScript("arguments[0].click();", element);
+        }
+
         /// <summary>
         /// Scroll and move to element before click
         /// </summary>
@@ -104,7 +113,7 @@ namespace WebDriver
         public static void ScrollAndClick(IWebElement element)
         {
             Jse.ExecuteScript("arguments[0].scrollIntoView(false);", element);
-            Thread.Sleep(5000);
+            Thread.Sleep(1000);
             WaitFor(() => element.Enabled && element.Displayed == true, 10);
             element.Click();
         }

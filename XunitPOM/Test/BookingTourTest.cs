@@ -104,6 +104,8 @@ namespace XunitPOM.Test
             BookingPage.InputPersonalInformation(personalfirstname, personallastname, email, phone, address);
             BookingPage.InputTourTravellersInformation(firsttravellerfirstname, firsttravellerlastname, secondtravellerfirstname, secondtravellerlastname);
 
+            BookingPage.ClickOnCookieGotIt();
+
             // Choose payment method
             BookingPage.ChoosePaymentMethod();
 
