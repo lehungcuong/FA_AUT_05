@@ -5,7 +5,7 @@ using System.IO;
 
 namespace DemoPOM.RestSharpAPI
 {
-    public class RestApiHelper<T>
+    public class RestApiHelper
     {
         public RestClient restClient;
         public static RestRequest restRequest;
@@ -38,13 +38,7 @@ namespace DemoPOM.RestSharpAPI
             restRequest = new RestRequest(Method.DELETE);
             restRequest.AddHeader("Accept", "application/json");
             return restRequest;
-        }
-
-        // Get the response
-        public IRestResponse GetResponse(RestClient client, RestRequest request)
-        {
-            return client.Execute(request);
-        }
+        }       
 
         public DTO GetContent<DTO>(IRestResponse response)
         {
