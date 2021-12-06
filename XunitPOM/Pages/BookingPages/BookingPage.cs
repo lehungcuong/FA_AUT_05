@@ -87,7 +87,7 @@ namespace XunitPOM.Pages
 
         public void ClickOnCookieGotIt()
         {
-            BtnCookieGotIt.Click();
+            BrowserFactory.Click(BtnCookieGotIt);
         }
 
         public BookingInvoicePage FlightClickOnConfirmBooking()

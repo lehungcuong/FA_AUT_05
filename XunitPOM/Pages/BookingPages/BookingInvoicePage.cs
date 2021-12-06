@@ -17,7 +17,7 @@ namespace XunitPOM.Pages
 
         public BookingPage ClickOnProceedCheckOut()
         {
-            BtnProceedCheckOut.Click();
+            BrowserFactory.Click(BtnProceedCheckOut);
             return new BookingPage(driver);
         }
     }

@@ -22,7 +22,7 @@ namespace XunitPOM.Pages
 
         public FlightSearchPage ClickOnBookNow()
         {
-            BtnBookNow.Click();
+            BrowserFactory.Click(BtnBookNow);
             return new FlightSearchPage(driver);
         }
 

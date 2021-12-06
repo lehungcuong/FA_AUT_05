@@ -26,20 +26,19 @@ namespace XunitPOM.Pages
 
         public void SelectLanguageEnglish()
         {
-            BtnLanguage.Click();
-            //Thread.Sleep(TimeSpan.FromSeconds(1));
-            SelectEnglish.Click();
+            BrowserFactory.Click(BtnLanguage);
+            BrowserFactory.Click(SelectEnglish);
         }
 
         public FlightPage NavigateToFlightPage()
         {
-            BtnFlights.Click();
+            BrowserFactory.Click(BtnFlights);
             return new FlightPage(driver);
         }
 
         public TourPage NavigateToTourPage()
         {
-            BtnTour.Click();
+            BrowserFactory.Click(BtnTour);
             return new TourPage(driver);
         }
 
