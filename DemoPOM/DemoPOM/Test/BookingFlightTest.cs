@@ -50,15 +50,15 @@ namespace DemoPOM.Test
             flightPage.NavigatePageSuccess("Search Hotels - PHPTRAVELS");
             flightPage.InputFlightInformation(flightFrom, flightTo, dateTime);
             flightPage.ClickToSearchButton();
-            bookingPage.NavigatePageSuccess("Flights - PHPTRAVELS");
-            bookingPage.NavigateToConfirmBookingpage();
-            confirmBookingPage.NavigatePageSuccess("Flight Booking - PHPTRAVELS");
-            confirmBookingPage.InputUserInformation();
-            confirmBookingPage.InputTravellerInformation();
-            confirmBookingPage.PaymentConfirm();
-            confirmBookingPage.ClickToTermAndConditionButton();
-            confirmBookingPage.NavigateToBookingSuccessPage();
-            bookingSuccessPage.NavigatePageSuccess("Flight Invoice - PHPTRAVELS");           
+            //bookingPage.NavigatePageSuccess("Flights - PHPTRAVELS");
+            //bookingPage.NavigateToConfirmBookingpage();
+            //confirmBookingPage.NavigatePageSuccess("Flight Booking - PHPTRAVELS");
+            //confirmBookingPage.InputUserInformation();
+            //confirmBookingPage.InputTravellerInformation();
+            //confirmBookingPage.PaymentConfirm();
+            //confirmBookingPage.ClickToTermAndConditionButton();
+            //confirmBookingPage.NavigateToBookingSuccessPage();
+            //bookingSuccessPage.NavigatePageSuccess("Flight Invoice - PHPTRAVELS");           
         }
 
         [Theory]
@@ -70,15 +70,15 @@ namespace DemoPOM.Test
             flightPage.NavigatePageSuccess("Search Hotels - PHPTRAVELS");
             flightPage.InputFlightInformation(flightFrom, flightTo, dateTime);
             flightPage.ClickToSearchButton();
-            bookingPage.NavigatePageSuccess("Flights - PHPTRAVELS");
-            bookingPage.NavigateToConfirmBookingpage();
-            confirmBookingPage.NavigatePageSuccess("Flight Booking - PHPTRAVELS");
-            confirmBookingPage.InputUserInformation();
-            confirmBookingPage.InputTravellerInformation();
-            confirmBookingPage.PaymentConfirm();
-            confirmBookingPage.ClickToTermAndConditionButton();
-            confirmBookingPage.NavigateToBookingSuccessPage();
-            bookingSuccessPage.NavigatePageSuccess("Flight Invoice - PHPTRAVELS");
+            //bookingPage.NavigatePageSuccess("Flights - PHPTRAVELS");
+            //bookingPage.NavigateToConfirmBookingpage();
+            //confirmBookingPage.NavigatePageSuccess("Flight Booking - PHPTRAVELS");
+            //confirmBookingPage.InputUserInformation();
+            //confirmBookingPage.InputTravellerInformation();
+            //confirmBookingPage.PaymentConfirm();
+            //confirmBookingPage.ClickToTermAndConditionButton();
+            //confirmBookingPage.NavigateToBookingSuccessPage();
+            //bookingSuccessPage.NavigatePageSuccess("Flight Invoice - PHPTRAVELS");
         }
 
         [Theory]
@@ -91,15 +91,15 @@ namespace DemoPOM.Test
             flightPage.NavigatePageSuccess("Search Hotels - PHPTRAVELS");
             flightPage.InputFlightInformation(flightFrom, flightTo, dateTime);
             flightPage.ClickToSearchButton();
-            bookingPage.NavigatePageSuccess("Flights - PHPTRAVELS");
-            bookingPage.NavigateToConfirmBookingpage();
-            confirmBookingPage.NavigatePageSuccess("Flight Booking - PHPTRAVELS");
-            confirmBookingPage.InputUserInformation();
-            confirmBookingPage.InputTravellerInformation();
-            confirmBookingPage.PaymentConfirm();
-            confirmBookingPage.ClickToTermAndConditionButton();
-            confirmBookingPage.NavigateToBookingSuccessPage();
-            bookingSuccessPage.NavigatePageSuccess("Flight Invoice - PHPTRAVELS");
+            //bookingPage.NavigatePageSuccess("Flights - PHPTRAVELS");
+            //bookingPage.NavigateToConfirmBookingpage();
+            //confirmBookingPage.NavigatePageSuccess("Flight Booking - PHPTRAVELS");
+            //confirmBookingPage.InputUserInformation();
+            //confirmBookingPage.InputTravellerInformation();
+            //confirmBookingPage.PaymentConfirm();
+            //confirmBookingPage.ClickToTermAndConditionButton();
+            //confirmBookingPage.NavigateToBookingSuccessPage();
+            //bookingSuccessPage.NavigatePageSuccess("Flight Invoice - PHPTRAVELS");
         }
 
         [Fact(DisplayName = "Booking Flight")]
@@ -110,15 +110,15 @@ namespace DemoPOM.Test
             flightPage.NavigatePageSuccess("Search Hotels - PHPTRAVELS");
             flightPage.InputFlightInformation1();
             flightPage.ClickToSearchButton();
-            bookingPage.NavigatePageSuccess("Flights - PHPTRAVELS");
-            bookingPage.NavigateToConfirmBookingpage();
-            confirmBookingPage.NavigatePageSuccess("Flight Booking - PHPTRAVELS");
-            confirmBookingPage.InputUserInformation();
-            confirmBookingPage.InputTravellerInformation();
-            confirmBookingPage.PaymentConfirm();
-            confirmBookingPage.ClickToTermAndConditionButton();
-            confirmBookingPage.NavigateToBookingSuccessPage();
-            bookingSuccessPage.NavigatePageSuccess("Flight Invoice - PHPTRAVELS");
+            //bookingPage.NavigatePageSuccess("Flights - PHPTRAVELS");
+            //bookingPage.NavigateToConfirmBookingpage();
+            //confirmBookingPage.NavigatePageSuccess("Flight Booking - PHPTRAVELS");
+            //confirmBookingPage.InputUserInformation();
+            //confirmBookingPage.InputTravellerInformation();
+            //confirmBookingPage.PaymentConfirm();
+            //confirmBookingPage.ClickToTermAndConditionButton();
+            //confirmBookingPage.NavigateToBookingSuccessPage();
+            //bookingSuccessPage.NavigatePageSuccess("Flight Invoice - PHPTRAVELS");
         }
     }
 
