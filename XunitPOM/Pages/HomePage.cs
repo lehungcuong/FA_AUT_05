@@ -32,13 +32,13 @@ namespace XunitPOM.Pages
 
         public FlightPage NavigateToFlightPage()
         {
-            BrowserFactory.Click(BtnFlights);
+            BtnFlights.Click();
             return new FlightPage(driver);
         }
 
         public TourPage NavigateToTourPage()
         {
-            BrowserFactory.Click(BtnTour);
+            BtnTour.Click();
             return new TourPage(driver);
         }
 

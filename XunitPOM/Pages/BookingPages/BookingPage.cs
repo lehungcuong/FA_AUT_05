@@ -1,4 +1,6 @@
 ﻿using OpenQA.Selenium;
+using System;
+using System.Threading;
 using WebDriver;
 using XunitPOM.Utilities;
 
@@ -81,13 +83,13 @@ namespace XunitPOM.Pages
 
         public void ChoosePaymentMethod()
         {
-            BrowserFactory.Click(BtnBankTransfer);
-            BrowserFactory.Click(BtnAgreeTermOfUse);
+            BrowserFactory.ScrollAndClick(BtnBankTransfer);
+            BrowserFactory.ScrollAndClick(BtnAgreeTermOfUse);
         }
 
         public void ClickOnCookieGotIt()
         {
-            BrowserFactory.Click(BtnCookieGotIt);
+            BrowserFactory.ScrollAndClick(BtnCookieGotIt);
         }
 
         public BookingInvoicePage FlightClickOnConfirmBooking()
@@ -98,7 +100,7 @@ namespace XunitPOM.Pages
 
         public ErrorPage TourClickOnConfirmBooking()
         {
-            BrowserFactory.Click(BtnBooking);
+            BrowserFactory.ScrollAndClick(BtnBooking);
             return new ErrorPage(driver);
         }
 

@@ -19,7 +19,7 @@ namespace WebDriver
         private static IJavaScriptExecutor Jse;
         private static WebDriverWait wait;
         private static Actions actions;
-        private static readonly TimeSpan timeout = TimeSpan.FromSeconds(10); 
+        private static readonly TimeSpan timeout = TimeSpan.FromSeconds(30); 
         private static readonly string SolutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.Parent.FullName;
         public static bool status;
         public IWebDriver driver;
@@ -88,14 +88,24 @@ namespace WebDriver
         }
 
         /// <summary>
-        /// Scroll to element before click
+        /// Move to element before click
         /// </summary>
         /// <param name="element"></param>
         public static void Click(IWebElement element)
         {
-            Jse.ExecuteScript("arguments[0].scrollIntoView(false);", element);
-            WaitFor(() => element.Enabled && element.Displayed == true, 10).Should().BeTrue();
             actions.MoveToElement(element).Build().Perform();
+            element.Click();
+        }
+
+        /// <summary>
+        /// Scroll and move to element before click
+        /// </summary>
+        /// <param name="element"></param>
+        public static void ScrollAndClick(IWebElement element)
+        {
+            Jse.ExecuteScript("arguments[0].scrollIntoView(false);", element);
+            Thread.Sleep(500);
+            WaitFor(() => element.Enabled && element.Displayed == true, 10).Should().BeTrue();
             element.Click();
         }
 
