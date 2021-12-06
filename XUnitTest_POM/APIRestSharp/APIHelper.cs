@@ -135,7 +135,7 @@ namespace XUnitTest_POM.APIRestSharp
         /// Get Data API
         /// </summary>
         /// <returns></returns>
-        public static string DataAPI(string name, string password)
+        public static string DataToSend(string name, string password)
         {
             var dataToSend = new Dictionary<string, string>();
             dataToSend.Add("userName", name);

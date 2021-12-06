@@ -8,12 +8,11 @@ namespace XUnitTest_POM.Test
 {
     public class APITest
     {
-        APIHelper aPIHelper;
-        string x;
+        APIHelper apiHelper;
 
         public APITest()
         {
-            aPIHelper = new APIHelper(ConfigHelper.GetValue("host"));
+            apiHelper = new APIHelper(ConfigHelper.GetValue("host"));
         }
 
         /// <summary>
@@ -25,66 +24,46 @@ namespace XUnitTest_POM.Test
         /// <returns></returns>
         public string returnValue(string config, string valueName, Parameter parameter)
         {
-            foreach (var element in aPIHelper.SendPostRequest(ConfigHelper.GetValue(config), parameter))
+            foreach (var element in apiHelper.SendPostRequest(ConfigHelper.GetValue(config), parameter))
             {
                 if (element.Key == valueName)
                 {
-                    x = element.Value;
+                    return element.Value;
                 }
             }
-            return x;
+            return "Not Found";
         }
 
         /// <summary>
         /// Post Test
         /// </summary>
-        [Fact(DisplayName ="Post API")]
+        [Fact(DisplayName ="Test Method API")]
         public void CallAPIPost()
         {
-            var data = APIHelper.DataAPI("trang98542", "123-Apple-$$$");
+            //Get Data to send
+            var data = APIHelper.DataToSend(ConfigHelper.GetValue("userName"), ConfigHelper.GetValue("password"));
             var parameter = new Parameter(
                 name: ConfigHelper.GetValue("ApplicationType"),
                 value: data,
                 type: ParameterType.RequestBody);
-            aPIHelper.SendPostRequest(ConfigHelper.GetValue("pathPost"), parameter);
-        }
 
-        /// <summary>
-        /// Get Test
-        /// </summary>
-        [Fact(DisplayName ="Get API")]
-        public void CallAPIGet()
-        {
-            var data = APIHelper.DataAPI("trang62112", "123-Apple-$$$");
-            var parameter = new Parameter(
-                name: ConfigHelper.GetValue("ApplicationType"),
-                value: data,
-                type: ParameterType.RequestBody);
+            //API Post User
             APIHelper.Id = returnValue("pathPost", "userID", parameter);
+
+            //API Generate Token
             APIHelper.Token = returnValue("token", "token", parameter);
-            foreach (var element in aPIHelper.SendGetRequest(ConfigHelper.GetValue("pathGetDel")))
+
+            //API Get User
+            foreach (var element in apiHelper.SendGetRequest(ConfigHelper.GetValue("pathGetDel")))
             {
-                if(element.Key == "userID")
+                if (element.Key == "userID")
                 {
                     APIHelper.Id.Should().Be(element.Value, "UserID wrong");
                 }
             }
-        }
 
-        /// <summary>
-        /// Delete Test
-        /// </summary>
-        [Fact(DisplayName ="Delete API")]
-        public void CallAPIDelete()
-        {
-            var data = APIHelper.DataAPI("trang411523", "123-Apple-$$$");
-            var parameter = new Parameter(
-                name: APIConstants.ApplicationType,
-                value: data,
-                type: ParameterType.RequestBody);
-            APIHelper.Id = returnValue("pathPost", "userID", parameter);
-            APIHelper.Token = returnValue("token", "token", parameter);
-            aPIHelper.SendDeleteRequest(ConfigHelper.GetValue("pathGetDel")).Should().BeNull();
+            //API Delete User
+            apiHelper.SendDeleteRequest(ConfigHelper.GetValue("pathGetDel")).Should().BeNull();
         }
     }
 }
