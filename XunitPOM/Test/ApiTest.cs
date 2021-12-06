@@ -18,7 +18,7 @@ namespace XunitPOM.Test
             apiHelper = new ApiHelper(ConfigHelper.GetValue("HostPath"));
         }
 
-        [Trait("Category", "Example")]
+        [Trait("Category", "Run")]
         [Fact(DisplayName = "Api Test")]
         public void ApiRawTest()
         {
