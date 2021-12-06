@@ -105,7 +105,7 @@ namespace WebDriver
         {
             Jse.ExecuteScript("arguments[0].scrollIntoView(false);", element);
             Thread.Sleep(500);
-            WaitFor(() => element.Enabled && element.Displayed == true, 10).Should().BeTrue();
+            WaitFor(() => element.Enabled && element.Displayed == true, 10);
             element.Click();
         }
 
