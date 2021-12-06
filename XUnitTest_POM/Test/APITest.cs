@@ -42,10 +42,7 @@ namespace XUnitTest_POM.Test
         {
             //Get Data to send
             var data = APIHelper.DataToSend(ConfigHelper.GetValue("userName"), ConfigHelper.GetValue("password"));
-            var parameter = new Parameter(
-                name: ConfigHelper.GetValue("ApplicationType"),
-                value: data,
-                type: ParameterType.RequestBody);
+            var parameter = new Parameter( name: ConfigHelper.GetValue("ApplicationType"), value: data, type: ParameterType.RequestBody);
 
             //API Post User
             APIHelper.Id = returnValue("pathPost", "userID", parameter);
