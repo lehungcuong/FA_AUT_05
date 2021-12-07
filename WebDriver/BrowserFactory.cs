@@ -22,7 +22,6 @@ namespace WebDriver
         private static Actions actions;
         private static readonly TimeSpan timeout = TimeSpan.FromSeconds(30); 
         private static readonly string SolutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.Parent.FullName;
-        public static bool status;
         public IWebDriver driver;
 
         public BrowserFactory(string type, string url) 
@@ -172,7 +171,7 @@ namespace WebDriver
         }
 
         /// <summary>
-        /// Assert bool type and set test status
+        /// Assert bool type
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type"></param>

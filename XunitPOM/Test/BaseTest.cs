@@ -3,39 +3,47 @@ using Xunit;
 using XunitPOM.Utilities;
 using WebDriver;
 using AventStack.ExtentReports;
+using System.Linq;
+using System.Reflection;
+using Xunit.Abstractions;
+using Xunit.Sdk;
 
 namespace XunitPOM.Test
 {
-    public class BaseTest : IDisposable
+    public class BaseTest : IDisposable, IClassFixture<ReportHelper>
     {
         public BrowserFactory browserFactory;
         public FactAttribute FactAttribute;
-        public XunitHelper XunitHelper;
+        ITestOutputHelper testOutputHelper;
 
-        public BaseTest()
+        public BaseTest(ITestOutputHelper testOutputHelper)
         {
+            this.testOutputHelper = testOutputHelper;
+
+            // Create new test case report
+            ReportHelper.CreateTestReport(GetMethodName());
+
             // Create new driver and get config from configuaration file
             browserFactory = new BrowserFactory(ConfigHelper.GetValue("Driver"), ConfigHelper.GetValue("URL"));
 
             // Create new driver and get config from json file
             //browserFactory = new BrowserFactory(JsonHelper.GetValueByKeyConfig("Driver"), JsonHelper.GetValueByKeyConfig("URL"));
-
-
         }
 
         /// <summary>
-        /// Set report status 
+        /// Get current method name
         /// </summary>
-        public static void ReportStatus()
+        /// <param name="context"></param>
+        /// <returns></returns>
+        public string GetMethodName()
         {
-            if (BrowserFactory.status == true)
-            {
-                ReportHelper.test.Log(Status.Pass, "Test Pass");
-            }
-            else
-            {
-                ReportHelper.test.Log(Status.Fail, "Test Fail");
-            }
+            var helper = (TestOutputHelper)testOutputHelper;
+
+            ITest test = (ITest)helper.GetType().GetField("test", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(helper);
+
+            string DisplayName = test.TestCase.DisplayName;
+
+            return DisplayName.Substring(0, DisplayName.IndexOf("Test") + 4);
         }
 
         /// <summary>
@@ -44,7 +52,6 @@ namespace XunitPOM.Test
         /// Test context in Xunit
         public void Dispose()
         {
-            ReportStatus();
             browserFactory.driver.Dispose();
             browserFactory.driver.Quit();
         }

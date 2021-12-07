@@ -1,12 +1,17 @@
-﻿using WebDriver;
+﻿using AventStack.ExtentReports;
+using FluentAssertions;
+using System;
+using System.Threading.Tasks;
+using WebDriver;
 using Xunit;
+using Xunit.Abstractions;
 using XunitPOM.Pages;
 using XunitPOM.TestData;
 using XunitPOM.Utilities;
 
 namespace XunitPOM.Test
 {
-    public class BookingTourTest : BaseTest, IClassFixture<ReportHelper>
+    public class BookingTourTest : BaseTest
     {
         private readonly HomePage HomePage;
         private readonly TourPage TourPage;
@@ -17,7 +22,7 @@ namespace XunitPOM.Test
         /// <summary>
         /// Init pages
         /// </summary>
-        public BookingTourTest()
+        public BookingTourTest(ITestOutputHelper output) : base(output)
         {
             HomePage = new HomePage(browserFactory.driver);
             TourPage = new TourPage(browserFactory.driver);
@@ -33,9 +38,11 @@ namespace XunitPOM.Test
         string phone, string address, string firsttravellerfirstname, string firsttravellerlastname,
         string secondtravellerfirstname, string secondtravellerlastname)
         {
-            // Call to booking tour method
-            BookingTour(personalfirstname, personallastname, email, phone, address, firsttravellerfirstname,
-            firsttravellerlastname, secondtravellerfirstname, secondtravellerlastname);
+            ReportHelper.ShouldNotThrow<Exception>(() =>
+            {
+                BookingTour(personalfirstname, personallastname, email, phone, address, firsttravellerfirstname,
+               firsttravellerlastname, secondtravellerfirstname, secondtravellerlastname);
+            });
         }
 
         [Theory(DisplayName = "Booking Tour Class Data Test")]
@@ -75,11 +82,9 @@ namespace XunitPOM.Test
         string phone, string address, string firsttravellerfirstname, string firsttravellerlastname,
         string secondtravellerfirstname, string secondtravellerlastname)
         {
-            // Create new test case report
-            XunitHelper.CreateTestReport();
-
             // Validate home page open successfully
             BrowserFactory.AssertValueBool(HomePage.ValidateWebOpenSuccess(), AssertType.True, "Can't load home page");
+            ReportHelper.test.Log(Status.Pass, "Home page loaded successfully");
 
             // choose language english
             HomePage.SelectLanguageEnglish();
@@ -87,18 +92,21 @@ namespace XunitPOM.Test
 
             // Validate tour page open successfully
             BrowserFactory.AssertValueBool(TourPage.ValidateWebOpenSuccess(), AssertType.True, "Can't nagivate to tour page");
+            ReportHelper.test.Log(Status.Pass, "Navigate to tour page successfully");
 
             // Get elements and click on third item
             TourPage.ClickOnThirdTour();
 
             // Validate tour detail page open successfully
             BrowserFactory.AssertValueBool(TourDetailPage.ValidateTourTitle(), AssertType.True, "Title of detail page not correct");
+            ReportHelper.test.Log(Status.Pass, "Navigate to tour detail page successfully");
 
             // Click on button book now
             TourDetailPage.ClickOnBookNow();
 
             // Validate booking page open successfully
             BrowserFactory.AssertValueBool(BookingPage.ValidateWebOpenSuccess(), AssertType.True, "Can't nagivate to booking page");
+            ReportHelper.test.Log(Status.Pass, "Navigate to booking page successfully");
 
             // Input booking information
             BookingPage.InputPersonalInformation(personalfirstname, personallastname, email, phone, address);
@@ -114,6 +122,7 @@ namespace XunitPOM.Test
 
             // Validate check out page
             BrowserFactory.AssertValueBool(ErrorPage.ValidateCheckOut(), AssertType.True, "Can't nagivate to check out page");
+            ReportHelper.test.Log(Status.Pass, "Checkout successfully");
         }
     }
 }

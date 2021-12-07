@@ -2,12 +2,13 @@
 using System.Threading;
 using WebDriver;
 using Xunit;
+using Xunit.Abstractions;
 using XunitPOM.Pages;
 using XunitPOM.Utilities;
 
 namespace XunitPOM.Test
 {
-    public class BookingFlightTest : BaseTest, IClassFixture<ReportHelper>
+    public class BookingFlightTest : BaseTest
     {
         private readonly HomePage HomePage;
         private readonly FlightPage FlightPage;
@@ -19,7 +20,7 @@ namespace XunitPOM.Test
         /// <summary>
         /// Init pages
         /// </summary>
-        public BookingFlightTest()
+        public BookingFlightTest(ITestOutputHelper output) : base(output)
         {
             HomePage = new HomePage(browserFactory.driver);
             FlightPage = new FlightPage(browserFactory.driver);
