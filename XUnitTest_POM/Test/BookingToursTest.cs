@@ -6,7 +6,7 @@ using XUnitTest_POM_Webdriver;
 
 namespace XUnitTest_POM.Test
 {
-    public class BookingToursTest : BaseTest
+    public class BookingToursTest : BaseTest, IClassFixture<ReportHelper>
     {
         readonly HomePage homePage;
         readonly ChooseTour chooseTour;
@@ -30,6 +30,7 @@ namespace XUnitTest_POM.Test
             string titleTravellerTour, string firstNameTravellerTour, string lastNameTravellerTour,
             string titleTravellerTour2, string firstNameTravellerTour2, string lastNameTravellerTour2)
         {
+            ReportHelper.CreatTest("Test Tour");
             //Assert Homepage
             BrowserFactory.FluentAssert(homePage.VerifyHomePage, "Homepage Fail");
 
