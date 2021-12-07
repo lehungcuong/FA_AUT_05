@@ -37,6 +37,7 @@ namespace XUnitTest_POM.Test
         /// <summary>
         /// Post Test
         /// </summary>
+        [Trait("Category","Example")]
         [Fact(DisplayName ="Test Method API")]
         public void CallAPIPost()
         {
