@@ -12,6 +12,7 @@ namespace XunitPOM.TestData
 {
     public class JsonReader : DataAttribute
     {
+        // Fix directory to bin
         private readonly static string SolutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\TestData\";
         private readonly string FilePath;
         private readonly string Node;

@@ -13,7 +13,7 @@ namespace XunitPOM.Test
 {
     public class BookingTourTest : BaseTest
     {
-        private readonly HomePage HomePage;
+        private readonly HomePage homePage;
         private readonly TourPage TourPage;
         private readonly TourDetailPage TourDetailPage;
         private readonly BookingPage BookingPage;
@@ -24,7 +24,7 @@ namespace XunitPOM.Test
         /// </summary>
         public BookingTourTest(ITestOutputHelper output) : base(output)
         {
-            HomePage = new HomePage(browserFactory.driver);
+            homePage = new HomePage(browserFactory.driver);
             TourPage = new TourPage(browserFactory.driver);
             TourDetailPage = new TourDetailPage(browserFactory.driver);
             BookingPage = new BookingPage(browserFactory.driver);
@@ -40,7 +40,7 @@ namespace XunitPOM.Test
         {
             ReportHelper.ShouldNotThrow<Exception>(() =>
             {
-                BookingTour(personalfirstname, personallastname, email, phone, address, firsttravellerfirstname,
+               BookingTour(personalfirstname, personallastname, email, phone, address, firsttravellerfirstname,
                firsttravellerlastname, secondtravellerfirstname, secondtravellerlastname);
             });
         }
@@ -83,30 +83,30 @@ namespace XunitPOM.Test
         string secondtravellerfirstname, string secondtravellerlastname)
         {
             // Validate home page open successfully
-            BrowserFactory.AssertValueBool(HomePage.ValidateWebOpenSuccess(), AssertType.True, "Can't load home page");
-            ReportHelper.test.Log(Status.Pass, "Home page loaded successfully");
+            BrowserFactory.AssertValueBool(homePage.ValidateWebOpenSuccess(), AssertType.True, "Can't load home page");
+            ReportHelper.extentTest.Log(Status.Pass, "Home page loaded successfully");
 
             // choose language english
-            HomePage.SelectLanguageEnglish();
-            HomePage.NavigateToTourPage();
+            homePage.SelectLanguageEnglish();
+            homePage.NavigateToTourPage();
 
             // Validate tour page open successfully
             BrowserFactory.AssertValueBool(TourPage.ValidateWebOpenSuccess(), AssertType.True, "Can't nagivate to tour page");
-            ReportHelper.test.Log(Status.Pass, "Navigate to tour page successfully");
+            ReportHelper.extentTest.Log(Status.Pass, "Navigate to tour page successfully");
 
             // Get elements and click on third item
             TourPage.ClickOnThirdTour();
 
             // Validate tour detail page open successfully
             BrowserFactory.AssertValueBool(TourDetailPage.ValidateTourTitle(), AssertType.True, "Title of detail page not correct");
-            ReportHelper.test.Log(Status.Pass, "Navigate to tour detail page successfully");
+            ReportHelper.extentTest.Log(Status.Pass, "Navigate to tour detail page successfully");
 
             // Click on button book now
             TourDetailPage.ClickOnBookNow();
 
             // Validate booking page open successfully
             BrowserFactory.AssertValueBool(BookingPage.ValidateWebOpenSuccess(), AssertType.True, "Can't nagivate to booking page");
-            ReportHelper.test.Log(Status.Pass, "Navigate to booking page successfully");
+            ReportHelper.extentTest.Log(Status.Pass, "Navigate to booking page successfully");
 
             // Input booking information
             BookingPage.InputPersonalInformation(personalfirstname, personallastname, email, phone, address);
@@ -122,7 +122,7 @@ namespace XunitPOM.Test
 
             // Validate check out page
             BrowserFactory.AssertValueBool(ErrorPage.ValidateCheckOut(), AssertType.True, "Can't nagivate to check out page");
-            ReportHelper.test.Log(Status.Pass, "Checkout successfully");
+            ReportHelper.extentTest.Log(Status.Pass, "Checkout successfully");
         }
     }
 }

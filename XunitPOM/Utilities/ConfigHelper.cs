@@ -8,6 +8,7 @@ namespace XunitPOM.Utilities
 {
     public class ConfigHelper
     {
+        // Fix directory to bin
         private readonly static string SolutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
         private readonly static string ConfigPath = SolutionPath + @"\Config\testhost.config";
         

@@ -21,7 +21,7 @@ namespace XunitPOM.Test
             this.testOutputHelper = testOutputHelper;
 
             // Create new test case report
-            ReportHelper.CreateTestReport(GetMethodName());
+            ReportHelper.CreateTestReport(GetDisplayName());
 
             // Create new driver and get config from configuaration file
             browserFactory = new BrowserFactory(ConfigHelper.GetValue("Driver"), ConfigHelper.GetValue("URL"));
@@ -31,11 +31,11 @@ namespace XunitPOM.Test
         }
 
         /// <summary>
-        /// Get current method name
+        /// Get current display name
         /// </summary>
         /// <param name="context"></param>
         /// <returns></returns>
-        public string GetMethodName()
+        public string GetDisplayName()
         {
             var helper = (TestOutputHelper)testOutputHelper;
 

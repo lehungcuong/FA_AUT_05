@@ -1,9 +1,6 @@
 ﻿using RestSharp;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace XunitPOM.Utilities
 {
@@ -11,10 +8,10 @@ namespace XunitPOM.Utilities
     {
         private IRestClient RestClient { get; set; }
         private IRestRequest RestRequest { get; set; }
-        string Host { get; set; }
+        readonly string host;
         public ApiHelper(string host)
         {
-            Host = host;
+            this.host = host;
         }
 
         /// <summary>
@@ -26,7 +23,7 @@ namespace XunitPOM.Utilities
         /// <returns> Generic Type </returns>
         public T SendPostRequest<T>(string path, params Parameter[] parameters) where T : new()
         {
-            InitiallizeApiClient(Host, path);
+            InitiallizeApiClient(host, path);
             InitiallizePostRequest(parameters);
             return ExcuteGetData<T>();
         }
@@ -40,7 +37,7 @@ namespace XunitPOM.Utilities
         /// <returns> Generic Type </returns>
         public T SendGetRequest<T>(string path, string option = "") where T : new()
         {
-            InitiallizeApiClient(Host, path, option);
+            InitiallizeApiClient(host, path, option);
             InitiallizeGetRequest();
             return ExcuteGetData<T>();
         }
@@ -53,7 +50,7 @@ namespace XunitPOM.Utilities
         /// <returns> Generic Type </returns>
         public string SendDeleteRequest(string path, string option = "")
         {
-            InitiallizeApiClient(Host, path, option);
+            InitiallizeApiClient(host, path, option);
             InitiallizeDeleteRequest();
             return ExcuteGetContent();
         }

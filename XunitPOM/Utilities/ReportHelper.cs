@@ -8,9 +8,10 @@ namespace XunitPOM.Utilities
 {
     public class ReportHelper : IDisposable
     {
-        public static ExtentReports extent;
-        public static ExtentTest test;
+        public static ExtentReports extentReport;
+        public static ExtentTest extentTest;
         private static string currentDate = DateTime.Now.ToString("dd-MM-yyyy-hh-mm-ss");
+        // Fix directory to bin
         private readonly static string SolutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
         private readonly static string ReportLocation = SolutionPath + @"\Reports\" + "Report " + currentDate + ".html";
         private static int count = 0;
@@ -20,12 +21,12 @@ namespace XunitPOM.Utilities
         /// </summary>
         public ReportHelper()
         {
-            extent = new ExtentReports();
+            extentReport = new ExtentReports();
             ExtentHtmlReporter HtmlReporter = new(ReportLocation);
             HtmlReporter.Config.DocumentTitle = "My Automation Test Report";
             HtmlReporter.Config.ReportName = "Example Report";
 
-            extent.AttachReporter(HtmlReporter);
+            extentReport.AttachReporter(HtmlReporter);
         }
 
         /// <summary>
@@ -34,7 +35,7 @@ namespace XunitPOM.Utilities
         /// <param name="DisplayName"></param>
         public static void CreateTestReport(string DisplayName = null)
         {
-            test = extent.CreateTest("Test case: " + TestCaseCount()).Info(DisplayName);
+            extentTest = extentReport.CreateTest("Test case: " + TestCaseCount()).Info(DisplayName);
         }
 
         /// <summary>
@@ -52,12 +53,12 @@ namespace XunitPOM.Utilities
             try
             {
                 thunk.Invoke();
-                test.Log(Status.Pass, "Test case run successfully");
+                extentTest.Log(Status.Pass, "Test case run successfully");
             }
             catch (T ex)
             {
-                test.Log(Status.Fail, ex.Message);
-                throw ex;
+                extentTest.Log(Status.Fail, ex.Message);
+                throw;
             }
         }
 
@@ -68,11 +69,11 @@ namespace XunitPOM.Utilities
         public static int TestCaseCount() => count += 1;
 
         /// <summary>
-        /// One time tear down export and copy report
+        /// Once time tear down export and copy report
         /// </summary>
         public void Dispose()
         {
-            extent.Flush();
+            extentReport.Flush();
             File.Move(SolutionPath + @"\Reports\" + "index.html", ReportLocation);
         }
     }

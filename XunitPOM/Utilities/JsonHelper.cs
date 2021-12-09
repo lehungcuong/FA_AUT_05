@@ -9,6 +9,7 @@ namespace XunitPOM.Utilities
 {
     public class JsonHelper
     {
+        // Fix directory to bin
         private static readonly string SolutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
         private static Dictionary<string, string> _SaveData;
         private static Dictionary<string, string> _RawData;

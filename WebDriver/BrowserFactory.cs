@@ -20,7 +20,8 @@ namespace WebDriver
         private static IJavaScriptExecutor Jse;
         private static WebDriverWait wait;
         private static Actions actions;
-        private static readonly TimeSpan timeout = TimeSpan.FromSeconds(30); 
+        private static readonly TimeSpan timeout = TimeSpan.FromSeconds(30);
+        // Fix directory to bin
         private static readonly string SolutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.Parent.FullName;
         public IWebDriver driver;
 
@@ -41,6 +42,7 @@ namespace WebDriver
         public static IWebDriver GetWebDriver(string type, string url)
         {
             IWebDriver driver;
+            // Fix directory to bin
             string driverFolder = SolutionPath  + @"\WebDriver\WebDriver\" + $"{type}" + "Driver";
 
             BrowserType driverType = type.Equals("Chrome") ? BrowserType.ChromeDriver : BrowserType.FirefoxDriver;
