@@ -12,7 +12,7 @@ namespace XunitPOM.Test
 {
     public class BaseTest : IDisposable, IClassFixture<ReportHelper>
     {
-        public BrowserFactory browserFactory;
+        public BrowserFactory BrowserFactory;
         public FactAttribute FactAttribute;
         ITestOutputHelper testOutputHelper;
 
@@ -24,10 +24,10 @@ namespace XunitPOM.Test
             ReportHelper.CreateTestReport(GetDisplayName());
 
             // Create new driver and get config from configuaration file
-            browserFactory = new BrowserFactory(ConfigHelper.GetValue("Driver"), ConfigHelper.GetValue("URL"));
+            //BrowserFactory = new BrowserFactory(ConfigHelper.GetValue("Driver"), ConfigHelper.GetValue("URL"));
 
             // Create new driver and get config from json file
-            //browserFactory = new BrowserFactory(JsonHelper.GetValueByKeyConfig("Driver"), JsonHelper.GetValueByKeyConfig("URL"));
+            BrowserFactory = new BrowserFactory(JsonHelper.GetValueByKeyRawData("Driver"), JsonHelper.GetValueByKeyRawData("URL"));
         }
 
         /// <summary>
@@ -52,8 +52,8 @@ namespace XunitPOM.Test
         /// Test context in Xunit
         public void Dispose()
         {
-            browserFactory.driver.Dispose();
-            browserFactory.driver.Quit();
+            BrowserFactory.driver.Dispose();
+            BrowserFactory.driver.Quit();
         }
     }
 }

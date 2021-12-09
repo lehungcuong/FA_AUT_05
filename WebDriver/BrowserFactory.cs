@@ -1,3 +1,4 @@
+using AventStack.ExtentReports;
 using FluentAssertions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -5,31 +6,26 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Threading;
-using System.Threading.Tasks;
-using Xunit;
+using XunitPOM.Constants;
 using XunitPOM.Utilities;
 
 namespace WebDriver
 {
     public class BrowserFactory
     {
-        private static IJavaScriptExecutor Jse;
+        private static IJavaScriptExecutor jse;
         private static WebDriverWait wait;
         private static Actions actions;
         private static readonly TimeSpan timeout = TimeSpan.FromSeconds(30);
-        // Fix directory to bin
-        private static readonly string SolutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.Parent.FullName;
         public IWebDriver driver;
 
         public BrowserFactory(string type, string url) 
         {
             driver = GetWebDriver(type, url);
             actions = new Actions(driver);
-            Jse = (IJavaScriptExecutor)driver;
+            jse = (IJavaScriptExecutor)driver;
             wait = new WebDriverWait(driver, timeout);
         }
 
@@ -43,7 +39,7 @@ namespace WebDriver
         {
             IWebDriver driver;
             // Fix directory to bin
-            string driverFolder = SolutionPath  + @"\WebDriver\WebDriver\" + $"{type}" + "Driver";
+            string driverFolder = DataConstant.BinPath + @"\WebDriver\" + $"{type}" + "Driver";
 
             BrowserType driverType = type.Equals("Chrome") ? BrowserType.ChromeDriver : BrowserType.FirefoxDriver;
 
@@ -105,7 +101,7 @@ namespace WebDriver
         /// <param name="element"></param>
         public static void JsClick(IWebElement element)
         {
-            Jse.ExecuteScript("arguments[0].click();", element);
+            jse.ExecuteScript("arguments[0].click();", element);
         }
 
         /// <summary>
@@ -114,7 +110,7 @@ namespace WebDriver
         /// <param name="element"></param>
         public static void ScrollAndClick(IWebElement element)
         {
-            Jse.ExecuteScript("arguments[0].scrollIntoView(false);", element);  
+            jse.ExecuteScript("arguments[0].scrollIntoView(false);", element);  
             Thread.Sleep(1000);
             WaitFor(() => element.Enabled && element.Displayed == true, 30).Should().BeTrue();
             element.Click();
@@ -177,15 +173,17 @@ namespace WebDriver
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type"></param>
-        public static void AssertValueBool(bool value, AssertType type, string message)
+        public static void AssertValueBool(bool value, AssertType type, string failMessage, string successMessage)
         {
             switch (type)
             {
                 case AssertType.True:
-                    value.Should().BeTrue(message);
+                    value.Should().BeTrue(failMessage);
+                    ReportHelper.extentTest.Log(Status.Pass, successMessage);
                     break;
                 case AssertType.False:
-                    value.Should().BeFalse(message);
+                    value.Should().BeFalse(failMessage);
+                    ReportHelper.extentTest.Log(Status.Pass, successMessage);
                     break;
             }
         }
@@ -196,15 +194,17 @@ namespace WebDriver
         /// <param name="value"></param>
         /// <param name="type"></param>
         /// <param name="message"></param>
-        public static void AssertValueNullOrNot(string value, AssertType type, string message)
+        public static void AssertValueNullOrNot(string value, AssertType type, string failMessage, string successMessage)
         {
             switch (type)
             {
                 case AssertType.Null:
-                    value.Should().BeNull(message);
+                    value.Should().BeNull(failMessage);
+                    ReportHelper.extentTest.Log(Status.Pass, successMessage);
                     break;
                 case AssertType.NotNull:
-                    value.Should().NotBeNull(message);
+                    value.Should().NotBeNull(failMessage);
+                    ReportHelper.extentTest.Log(Status.Pass, successMessage);
                     break;
             }
         }
@@ -214,9 +214,10 @@ namespace WebDriver
         /// </summary>
         /// <param name="value"></param>
         /// <param name="message"></param>
-        public static void AssertValueEmpty(string value, string message)
+        public static void AssertValueEmpty(string value, string failMessage, string successMessage)
         {
-            value.Should().BeEmpty();
+            value.Should().BeEmpty(failMessage);
+            ReportHelper.extentTest.Log(Status.Pass, successMessage);
         }
 
         /// <summary>
@@ -224,9 +225,10 @@ namespace WebDriver
         /// </summary>
         /// <param name="value1"></param>
         /// <param name="value2"></param>
-        public static void AssertValueEqual(string value1, string value2, string message)
+        public static void AssertValueEqual(string value1, string value2, string failMessage, string successMessage)
         {
-            value1.Should().Be(value2, message);
+            value1.Should().Be(value2, failMessage);
+            ReportHelper.extentTest.Log(Status.Pass, successMessage);
         }
 
         /// <summary>

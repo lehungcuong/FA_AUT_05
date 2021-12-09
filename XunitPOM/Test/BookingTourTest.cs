@@ -1,7 +1,5 @@
 ﻿using AventStack.ExtentReports;
-using FluentAssertions;
 using System;
-using System.Threading.Tasks;
 using WebDriver;
 using Xunit;
 using Xunit.Abstractions;
@@ -24,11 +22,11 @@ namespace XunitPOM.Test
         /// </summary>
         public BookingTourTest(ITestOutputHelper output) : base(output)
         {
-            homePage = new HomePage(browserFactory.driver);
-            TourPage = new TourPage(browserFactory.driver);
-            TourDetailPage = new TourDetailPage(browserFactory.driver);
-            BookingPage = new BookingPage(browserFactory.driver);
-            ErrorPage = new ErrorPage(browserFactory.driver);
+            homePage = new HomePage(BrowserFactory.driver);
+            TourPage = new TourPage(BrowserFactory.driver);
+            TourDetailPage = new TourDetailPage(BrowserFactory.driver);
+            BookingPage = new BookingPage(BrowserFactory.driver);
+            ErrorPage = new ErrorPage(BrowserFactory.driver);
         }
 
         [Theory(DisplayName = "Booking Tour Inline Data Test")]
@@ -52,8 +50,11 @@ namespace XunitPOM.Test
         string secondtravellerfirstname, string secondtravellerlastname)
         {
             // Call to booking tour method
-            BookingTour(personalfirstname, personallastname, email, phone, address, firsttravellerfirstname,
-            firsttravellerlastname, secondtravellerfirstname, secondtravellerlastname);
+            ReportHelper.ShouldNotThrow<Exception>(() =>
+            {
+                BookingTour(personalfirstname, personallastname, email, phone, address, firsttravellerfirstname,
+                firsttravellerlastname, secondtravellerfirstname, secondtravellerlastname);
+            });
         }
 
         [Theory(DisplayName = "Booking Tour Member Data Test")]
@@ -63,8 +64,11 @@ namespace XunitPOM.Test
         string secondtravellerfirstname, string secondtravellerlastname)
         {
             // Call to booking tour method
-            BookingTour(personalfirstname, personallastname, email, phone, address, firsttravellerfirstname,
-            firsttravellerlastname, secondtravellerfirstname, secondtravellerlastname);
+            ReportHelper.ShouldNotThrow<Exception>(() =>
+            {
+                BookingTour(personalfirstname, personallastname, email, phone, address, firsttravellerfirstname,
+                firsttravellerlastname, secondtravellerfirstname, secondtravellerlastname);
+            });
         }
 
         [Theory(DisplayName = "Booking Tour Json Data Test")]
@@ -74,8 +78,11 @@ namespace XunitPOM.Test
         string secondtravellerfirstname, string secondtravellerlastname)
         {
             // Call to booking tour method
-            BookingTour(personalfirstname, personallastname, email, phone, address, firsttravellerfirstname,
-            firsttravellerlastname, secondtravellerfirstname, secondtravellerlastname);
+            ReportHelper.ShouldNotThrow<Exception>(() =>
+            {
+                BookingTour(personalfirstname, personallastname, email, phone, address, firsttravellerfirstname,
+                firsttravellerlastname, secondtravellerfirstname, secondtravellerlastname);
+            });
         }
 
         public void BookingTour(string personalfirstname, string personallastname, string email,
@@ -83,30 +90,26 @@ namespace XunitPOM.Test
         string secondtravellerfirstname, string secondtravellerlastname)
         {
             // Validate home page open successfully
-            BrowserFactory.AssertValueBool(homePage.ValidateWebOpenSuccess(), AssertType.True, "Can't load home page");
-            ReportHelper.extentTest.Log(Status.Pass, "Home page loaded successfully");
+            BrowserFactory.AssertValueBool(homePage.ValidateWebOpenSuccess(), AssertType.True, "Can't load home page", "Home page loaded successfully");
 
             // choose language english
             homePage.SelectLanguageEnglish();
             homePage.NavigateToTourPage();
 
             // Validate tour page open successfully
-            BrowserFactory.AssertValueBool(TourPage.ValidateWebOpenSuccess(), AssertType.True, "Can't nagivate to tour page");
-            ReportHelper.extentTest.Log(Status.Pass, "Navigate to tour page successfully");
+            BrowserFactory.AssertValueBool(TourPage.ValidateWebOpenSuccess(), AssertType.True, "Can't nagivate to tour page", "Navigate to tour page successfully");
 
             // Get elements and click on third item
             TourPage.ClickOnThirdTour();
 
             // Validate tour detail page open successfully
-            BrowserFactory.AssertValueBool(TourDetailPage.ValidateTourTitle(), AssertType.True, "Title of detail page not correct");
-            ReportHelper.extentTest.Log(Status.Pass, "Navigate to tour detail page successfully");
+            BrowserFactory.AssertValueBool(TourDetailPage.ValidateTourTitle(), AssertType.True, "Title of detail page not correct", "Navigate to tour detail page successfully");
 
             // Click on button book now
             TourDetailPage.ClickOnBookNow();
 
             // Validate booking page open successfully
-            BrowserFactory.AssertValueBool(BookingPage.ValidateWebOpenSuccess(), AssertType.True, "Can't nagivate to booking page");
-            ReportHelper.extentTest.Log(Status.Pass, "Navigate to booking page successfully");
+            BrowserFactory.AssertValueBool(BookingPage.ValidateWebOpenSuccess(), AssertType.True, "Can't nagivate to booking page", "Navigate to booking page successfully");
 
             // Input booking information
             BookingPage.InputPersonalInformation(personalfirstname, personallastname, email, phone, address);
@@ -121,8 +124,7 @@ namespace XunitPOM.Test
             BookingPage.TourClickOnConfirmBooking();
 
             // Validate check out page
-            BrowserFactory.AssertValueBool(ErrorPage.ValidateCheckOut(), AssertType.True, "Can't nagivate to check out page");
-            ReportHelper.extentTest.Log(Status.Pass, "Checkout successfully");
+            BrowserFactory.AssertValueBool(ErrorPage.ValidateCheckOut(), AssertType.True, "Can't nagivate to check out page", "Checkout successfully");
         }
     }
 }

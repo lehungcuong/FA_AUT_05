@@ -4,15 +4,15 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using XunitPOM.Constants;
 
 namespace XunitPOM.Utilities
 {
     public class JsonHelper
     {
-        // Fix directory to bin
-        private static readonly string SolutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
         private static Dictionary<string, string> _SaveData;
         private static Dictionary<string, string> _RawData;
+
 
         /// <summary>
         /// Load json and parse to dictionary
@@ -21,7 +21,7 @@ namespace XunitPOM.Utilities
         public static Dictionary<string, string> LoadJson(string path = @"\TestData\JsonData.json")
         {
             // check file exist or not
-            if (File.Exists(SolutionPath + path))
+            if (File.Exists(DataConstant.BinPath + path))
             {
                 try
                 {
@@ -29,7 +29,7 @@ namespace XunitPOM.Utilities
                     Dictionary<string, string> SaveData = new();
 
                     // read file into a string and deserialize JSON to a type
-                    Dictionary<string, string> data = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(SolutionPath + path));
+                    Dictionary<string, string> data = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(DataConstant.BinPath + path));
                     foreach (var e in data)
                     {
                         if (e.Key == "token" || e.Key == "userID")
@@ -74,7 +74,7 @@ namespace XunitPOM.Utilities
 
             String output = JsonConvert.SerializeObject(result, Formatting.Indented);
 
-            File.WriteAllText(SolutionPath + path, output);
+            File.WriteAllText(DataConstant.BinPath + path, output);
         }
 
         /// <summary>
@@ -82,8 +82,11 @@ namespace XunitPOM.Utilities
         /// </summary>
         /// <param name="key"></param>
         /// <returns> return string with key raw data </returns>
-        public static string GetValueByKeyRawData(string key, string path = @"\Config\testhost.json") => _RawData[key];
-
+        public static string GetValueByKeyRawData(string key, string path = @"\Config\testhost.json")
+        {
+            LoadJson(path); 
+            return _RawData[key];
+        }
         /// <summary>
         /// Get value by key in save data
         /// </summary>

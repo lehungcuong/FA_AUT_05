@@ -3,14 +3,13 @@ using System.Linq;
 using System.Configuration;
 using System.Collections.Specialized;
 using System.IO;
+using XunitPOM.Constants;
 
 namespace XunitPOM.Utilities
 {
     public class ConfigHelper
     {
-        // Fix directory to bin
-        private readonly static string SolutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
-        private readonly static string ConfigPath = SolutionPath + @"\Config\testhost.config";
+        private readonly static string ConfigPath = DataConstant.BinPath + @"\Config\testhost.config";
         
         /// <summary>
         /// Get configuaration path

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -28,11 +28,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Reports\" />
+    <ProjectReference Include="..\WebDriver\Xunit.WebDriver.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WebDriver\Xunit.WebDriver.csproj" />
+    <None Update="Config\testhost.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Config\testhost.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\JsonData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\TestData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

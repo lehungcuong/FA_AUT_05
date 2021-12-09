@@ -1,8 +1,10 @@
-﻿namespace XunitPOM.Constants
+﻿using System;
+
+namespace XunitPOM.Constants
 {
-    public class DataConstant
+    public static class DataConstant
     {
-       public static readonly string URL = "https://phptravels.net";
+       public static readonly string BinPath = Environment.CurrentDirectory;
        public static readonly string Firstname = "Dinh";
        public static readonly string Lastname = "Thi";
        public static readonly string Email = "DinhThi123@gmail.com";

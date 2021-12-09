@@ -7,18 +7,17 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit.Sdk;
+using XunitPOM.Constants;
 
 namespace XunitPOM.TestData
 {
     public class JsonReader : DataAttribute
     {
-        // Fix directory to bin
-        private readonly static string SolutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\TestData\";
         private readonly string FilePath;
         private readonly string Node;
         public JsonReader(string fileName, string node)
         {
-            FilePath = Path.Combine(SolutionPath, fileName);
+            FilePath = Path.Combine(DataConstant.BinPath + @"\TestData\", fileName);
             Node = node;
         }
 

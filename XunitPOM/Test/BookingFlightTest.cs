@@ -22,12 +22,12 @@ namespace XunitPOM.Test
         /// </summary>
         public BookingFlightTest(ITestOutputHelper output) : base(output)
         {
-            HomePage = new HomePage(browserFactory.driver);
-            FlightPage = new FlightPage(browserFactory.driver);
-            FlightSearchPage = new FlightSearchPage(browserFactory.driver);
-            BookingPage = new BookingPage(browserFactory.driver);
-            BookingInvoicePage = new BookingInvoicePage(browserFactory.driver);
-            BankTransferPage = new BankTransferPage(browserFactory.driver);
+            HomePage = new HomePage(BrowserFactory.driver);
+            FlightPage = new FlightPage(BrowserFactory.driver);
+            FlightSearchPage = new FlightSearchPage(BrowserFactory.driver);
+            BookingPage = new BookingPage(BrowserFactory.driver);
+            BookingInvoicePage = new BookingInvoicePage(BrowserFactory.driver);
+            BankTransferPage = new BankTransferPage(BrowserFactory.driver);
         }
 
         /* Booking tour have problem with data

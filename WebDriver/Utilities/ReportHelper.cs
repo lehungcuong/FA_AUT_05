@@ -3,6 +3,7 @@ using AventStack.ExtentReports.Reporter;
 using System;
 using System.IO;
 using Xunit;
+using XunitPOM.Constants;
 
 namespace XunitPOM.Utilities
 {
@@ -11,9 +12,7 @@ namespace XunitPOM.Utilities
         public static ExtentReports extentReport;
         public static ExtentTest extentTest;
         private static string currentDate = DateTime.Now.ToString("dd-MM-yyyy-hh-mm-ss");
-        // Fix directory to bin
-        private readonly static string SolutionPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
-        private readonly static string ReportLocation = SolutionPath + @"\Reports\" + "Report " + currentDate + ".html";
+        private readonly static string ReportLocation = DataConstant.BinPath + @"\Reports\" + "Report " + currentDate + ".html";
         private static int count = 0;
 
         /// <summary>
@@ -74,7 +73,7 @@ namespace XunitPOM.Utilities
         public void Dispose()
         {
             extentReport.Flush();
-            File.Move(SolutionPath + @"\Reports\" + "index.html", ReportLocation);
+            File.Move(DataConstant.BinPath + @"\Reports\" + "index.html", ReportLocation);
         }
     }
 }
