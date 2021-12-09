@@ -11,8 +11,9 @@ namespace XunitPOM.Utilities
     {
         public static ExtentReports extentReport;
         public static ExtentTest extentTest;
-        private static string currentDate = DateTime.Now.ToString("dd-MM-yyyy-hh-mm-ss");
-        private readonly static string ReportLocation = DataConstant.BinPath + @"\Reports\" + "Report " + currentDate + ".html";
+        private readonly string ReportLocation = DataConstant.BinPath + @"\Reports\Report "
+                                                                      + DateTime.Now.ToString("dd-MM-yyyy-hh-mm-ss") 
+                                                                      + ".html";
         private static int count = 0;
 
         /// <summary>
@@ -34,7 +35,7 @@ namespace XunitPOM.Utilities
         /// <param name="DisplayName"></param>
         public static void CreateTestReport(string DisplayName = null)
         {
-            extentTest = extentReport.CreateTest("Test case: " + TestCaseCount()).Info(DisplayName);
+            extentTest = extentReport.CreateTest("Test case: " + DisplayName).Info("Test report create successfully !");
         }
 
         /// <summary>

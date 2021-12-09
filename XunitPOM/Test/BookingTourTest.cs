@@ -9,6 +9,7 @@ using XunitPOM.Utilities;
 
 namespace XunitPOM.Test
 {
+    [Collection("Test Collection")]
     public class BookingTourTest : BaseTest
     {
         private readonly HomePage homePage;
