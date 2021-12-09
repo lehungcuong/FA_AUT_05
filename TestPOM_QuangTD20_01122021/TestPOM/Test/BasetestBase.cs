@@ -11,8 +11,8 @@ namespace TestPOM.Test
         public BrowserFactory BrowserFactory;
 
        // public  BrowserType GetBrowserType()
-       // {
-        //    string testhost = ConfigurationManager.AppSettings["Browser"].Tosing();
-       // }
+        //{
+         //   string testhost = ConfigurationManager.AppSettings["Browser"].Tosing();
+        //}
     }
 }

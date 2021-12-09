@@ -23,20 +23,16 @@ namespace TestPOM.Test
 
         }
 
-
-
-        /*
-
         [Fact(DisplayName = "Test Book Tours")]
         public void TestBookTours()
         {
 
             // input page tours
-            /*  homepage.bnttours();
+              homepage.bnttours();
               Thread.Sleep(2000);
               //input infomation of user 
-              tourspage.Choosetours();*/
-      //}
+              tourspage.Choosetours();
+      }
         
         /// read information in LineData
         /*
@@ -66,7 +62,7 @@ namespace TestPOM.Test
        #endregion
 
       
-        /*
+        
         /// read information in ClassData
         #region ClassData
         [Theory(DisplayName = "Booking Tour Test ClassData")]
@@ -134,7 +130,7 @@ namespace TestPOM.Test
         }
         #endregion
 
-
+        /*
         // read information in JSON
         #region JsonReader
         [Theory(DisplayName = "JsonReader")]

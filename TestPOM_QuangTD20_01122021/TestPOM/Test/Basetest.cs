@@ -7,6 +7,7 @@ using static TestPOM2.Browser;
 using System.Collections.Generic;
 using System.IO;
 
+
 namespace TestPOM.Test 
 {
 
@@ -20,16 +21,16 @@ namespace TestPOM.Test
 
         public Basetest()
         {
-            //driver = new ChromeDriver();
-            //driver.Url = "https://phptravels.net/";
-            //browserFactory = new BrowserFactory(GetBrowserType());         
-            browserFactory = new BrowserFactory(GetBrowserType(), URL());         
+           // driver = new ChromeDriver();
+           // driver.Url = "https://phptravels.net/";
+           // browserFactory = new BrowserFactory(GetBrowserType());         
+           // browserFactory = new BrowserFactory(GetBrowserType(), URL());         
         }
 
         
-
+        /*
         // read Browser in file Testhost.Dll.config
-        /*  public BrowserType GetBrowserType()
+          public BrowserType GetBrowserType()
           {
               string Testhost = ConfigurationManager.AppSettings["Browser"].ToString();
               Enum.TryParse(Testhost, out BrowserType type);
@@ -47,14 +48,14 @@ namespace TestPOM.Test
           */
 
         //  BrowserType in file readjon.Json
-       public BrowserType GetBrowserType()
+       public BrowserType GetBrowser()
         {
             var Testhost = GetValueJson("browser");
             Enum.TryParse(Testhost, out BrowserType type);
             return type;
         }
         // Url in file readjon.Json
-        public string URL()
+        public string URL1()
         {
             var Url = GetValueJson("Url");
             return Url;

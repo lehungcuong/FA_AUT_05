@@ -50,7 +50,7 @@ namespace TestPOM.Pages
             ClassFunction = new ClassFunction();
         }
 
-       /* public void Choosetours()
+        public void Choosetours()
         {
             
             ClassFunction.WebElementClick(CLicktourswanttogo);    
@@ -81,7 +81,7 @@ namespace TestPOM.Pages
             ClassFunction.WebElementClick(Confimr);
             Thread.Sleep(10000);
 
-            /*IJavaScriptExecutor Srollpage = (IJavaScriptExecutor)Driver;
+            IJavaScriptExecutor Srollpage = (IJavaScriptExecutor)Driver;
 
             Thread.Sleep(2000);
             Srollpage.ExecuteScript("window.scrollTo(0, 500)");
@@ -112,8 +112,8 @@ namespace TestPOM.Pages
             Thread.Sleep(3000);
             Srollpage.ExecuteScript("window.scrollTo(0, 300)");
 
-        }  */
-    
+        }  
+        /*
         public void Bookingtoursbydata(string textFirstname, string textLastname, string textEmail, string textPhone, string textAddress,
            string textFirstName1, string textClassName1, string textFirstName2, string textClassName2)
         {
@@ -148,6 +148,6 @@ namespace TestPOM.Pages
             Thread.Sleep(10000);
 
 
-        }
+        }*/
     }
 }
