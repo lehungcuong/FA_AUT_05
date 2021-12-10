@@ -1,0 +1,5 @@
+D:\FA_AUT_05\ThaoPTT12 Final\WebDriver\obj\Debug\net5.0\WebDriver.csproj.AssemblyReference.cache
+D:\FA_AUT_05\ThaoPTT12 Final\WebDriver\obj\Debug\net5.0\WebDriver.GeneratedMSBuildEditorConfig.editorconfig
+D:\FA_AUT_05\ThaoPTT12 Final\WebDriver\obj\Debug\net5.0\WebDriver.AssemblyInfoInputs.cache
+D:\FA_AUT_05\ThaoPTT12 Final\WebDriver\obj\Debug\net5.0\WebDriver.AssemblyInfo.cs
+D:\FA_AUT_05\ThaoPTT12 Final\WebDriver\obj\Debug\net5.0\WebDriver.csproj.CoreCompileInputs.cache

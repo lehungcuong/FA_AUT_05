@@ -1,0 +1,5 @@
+D:\FA_AUT_05\ThaoPTT12 Final\ThaoPTT12 Final\obj\Debug\net5.0\ThaoPTT12 Final.csproj.AssemblyReference.cache
+D:\FA_AUT_05\ThaoPTT12 Final\ThaoPTT12 Final\obj\Debug\net5.0\ThaoPTT12 Final.GeneratedMSBuildEditorConfig.editorconfig
+D:\FA_AUT_05\ThaoPTT12 Final\ThaoPTT12 Final\obj\Debug\net5.0\ThaoPTT12 Final.AssemblyInfoInputs.cache
+D:\FA_AUT_05\ThaoPTT12 Final\ThaoPTT12 Final\obj\Debug\net5.0\ThaoPTT12 Final.AssemblyInfo.cs
+D:\FA_AUT_05\ThaoPTT12 Final\ThaoPTT12 Final\obj\Debug\net5.0\ThaoPTT12 Final.csproj.CoreCompileInputs.cache
