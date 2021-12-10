@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "2c0b450b-7238-464f-b0a7-09dde55ae66e": {
+      "ProjectGuid": "2c0b450b-7238-464f-b0a7-09dde55ae66e",
+      "DisplayName": "FinalTest",
+      "ColorIndex": 0
+    },
+    "7702aa24-b2ae-461e-bf57-7ba669fdbc4e": {
+      "ProjectGuid": "7702aa24-b2ae-461e-bf57-7ba669fdbc4e",
+      "DisplayName": "Project1.WebDriver",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
