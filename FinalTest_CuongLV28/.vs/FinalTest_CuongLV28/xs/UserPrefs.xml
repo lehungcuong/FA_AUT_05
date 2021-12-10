@@ -1,0 +1,45 @@
+﻿<Properties StartupConfiguration="{A9F837C9-5D57-4ED0-A737-1EE10177AB56}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FinalTest_CuongLV28/Page/CreateAnAccountPage.cs">
+    <Files>
+      <File FileName="FinalTest_CuongLV28/Test/TestingLogin.cs" Line="21" Column="67" />
+      <File FileName="FinalTest_CuongLV28/Page/RegisterPage.cs" Line="17" Column="57" />
+      <File FileName="FinalTest_CuongLV28/Page/HomePage.cs" Line="16" Column="31" />
+      <File FileName="FinalTest_CuongLV28/Test/BaseTest.cs" Line="16" Column="1" />
+      <File FileName="FinalTest_CuongLV28/Page/Product.cs" Line="18" Column="40" />
+      <File FileName="../PageObjectModel/PageObjectModel/TestBookFlight/TestBookingFlight.cs" Line="1" Column="1" />
+      <File FileName="FinalTest_CuongLV28/Test/TestBuyDress.cs" Line="9" Column="1" />
+      <File FileName="FinalTest_CuongLV28/Page/ShoppingCartSummary.cs" Line="26" Column="10" />
+      <File FileName="FinalTest_CuongLV28/Page/CreateAnAccountPage.cs" Line="54" Column="22" />
+      <File FileName="FinalTest_CuongLV28/Page/CheckoutPage_Adress.cs" Line="20" Column="10" />
+      <File FileName="FinalTest_CuongLV28/Page/Checkoutpage_Shipping.cs" Line="26" Column="44" />
+      <File FileName="FinalTest_CuongLV28/Page/LoginPage.cs" Line="1" Column="1" />
+      <File FileName="FinalTest_CuongLV28/Page/BasePage.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="FinalTest_CuongLV28" expanded="True">
+            <Node name="FinalTest_CuongLV28" expanded="True">
+              <Node name="Page" expanded="True">
+                <Node name="CreateAnAccountPage.cs" selected="True" />
+              </Node>
+              <Node name="Test" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="FinalTest_CuongLV28" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.FinalTest__CuongLV28 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
