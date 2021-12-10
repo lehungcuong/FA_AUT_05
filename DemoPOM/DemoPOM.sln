@@ -5,7 +5,9 @@ VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoPOM", "DemoPOM\DemoPOM.csproj", "{308B5382-A63C-4313-B0E8-7098208C4310}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project1.WebDriver", "Project1.WebDriver\Project1.WebDriver.csproj", "{3D49E740-E5C0-47B0-8232-F3F2FB344454}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project1.WebDriver", "Project1.WebDriver\Project1.WebDriver.csproj", "{3D49E740-E5C0-47B0-8232-F3F2FB344454}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{C33F992D-7351-4D84-B3C6-378CE6591007}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

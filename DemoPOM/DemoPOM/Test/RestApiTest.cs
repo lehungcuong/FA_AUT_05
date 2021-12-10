@@ -1,4 +1,5 @@
-﻿using DemoPOM.RestSharpAPI;
+﻿using DemoPOM.Report;
+using DemoPOM.RestSharpAPI;
 using System;
 using Xunit;
 using Xunit.Abstractions;
@@ -8,16 +9,19 @@ namespace DemoPOM.Test
     public class RestApiTest
     {
         private readonly ITestOutputHelper output;
+        ReportHelper reportHelper;
 
         public RestApiTest(ITestOutputHelper output)
         {
             this.output = output;
+            reportHelper = new ReportHelper();        
         }
 
         // Create a new user
         [Fact]
         public void CreateUsers()
         {
+            reportHelper.CreateTest("TC1", "Testcase create a new user");
             string jsString = @"{
                                     ""id"": ""9"",
                                     ""name"": ""hanna"",
@@ -28,6 +32,8 @@ namespace DemoPOM.Test
             var request = restApi.CreatePostRequest(jsString);
             var respone = restUrl.Execute(request);
             Console.WriteLine(respone);
+            reportHelper.SetStepStatusPass("Testcase passed");
+            reportHelper.Close();
         }
 
         // Get a user in database by id
