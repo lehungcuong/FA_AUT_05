@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31313.79
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiemHL1_FinalTest", "DiemHL1_FinalTest\DiemHL1_FinalTest.csproj", "{CBFA250C-3DE4-4DF3-AF2A-9364E95F4DD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriverFactory", "DriverFactory\DriverFactory.csproj", "{2CDA55B5-3F0C-49F3-97F3-C8F32024FC32}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBFA250C-3DE4-4DF3-AF2A-9364E95F4DD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBFA250C-3DE4-4DF3-AF2A-9364E95F4DD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBFA250C-3DE4-4DF3-AF2A-9364E95F4DD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBFA250C-3DE4-4DF3-AF2A-9364E95F4DD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CDA55B5-3F0C-49F3-97F3-C8F32024FC32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CDA55B5-3F0C-49F3-97F3-C8F32024FC32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CDA55B5-3F0C-49F3-97F3-C8F32024FC32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CDA55B5-3F0C-49F3-97F3-C8F32024FC32}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {00E5007E-56ED-441F-B9BB-748C998BFFE6}
+	EndGlobalSection
+EndGlobal
