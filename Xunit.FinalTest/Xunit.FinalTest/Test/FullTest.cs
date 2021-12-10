@@ -45,6 +45,7 @@ namespace Xunit.FinalTest.Test
             searchPage = new SearchPage(browserFactory.driver);
         }
 
+        [Trait("Category", "RunThis")]
         [Theory(DisplayName = "Register With Valid Account Test"), Priority(0)]
         [JsonReader("TestData.json", "Data")]
         public void RegisterWithValidAccountTest(string gender, string firstname, 
@@ -88,6 +89,7 @@ namespace Xunit.FinalTest.Test
             });
         }
 
+        [Trait("Category", "RunThis")]
         [Fact(DisplayName = "Login With Valid Account Test"), Priority(1)]
         public void LoginWithValidAccountTest()
         {
