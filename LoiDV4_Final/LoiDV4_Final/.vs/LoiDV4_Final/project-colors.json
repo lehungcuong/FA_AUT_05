@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "797156ae-772e-47b6-9cce-2f16aedfb4c5": {
+      "ProjectGuid": "797156ae-772e-47b6-9cce-2f16aedfb4c5",
+      "DisplayName": "LoiDV4_Final",
+      "ColorIndex": 0
+    },
+    "f16d90ba-8e6f-4b76-bfed-306d8488ed12": {
+      "ProjectGuid": "f16d90ba-8e6f-4b76-bfed-306d8488ed12",
+      "DisplayName": "POM.WebDriver",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

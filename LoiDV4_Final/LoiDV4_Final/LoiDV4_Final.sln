@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31825.309
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoiDV4_Final", "LoiDV4_Final\LoiDV4_Final.csproj", "{797156AE-772E-47B6-9CCE-2F16AEDFB4C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POM.WebDriver", "POM.WebDriver\POM.WebDriver.csproj", "{F16D90BA-8E6F-4B76-BFED-306D8488ED12}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{797156AE-772E-47B6-9CCE-2F16AEDFB4C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{797156AE-772E-47B6-9CCE-2F16AEDFB4C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{797156AE-772E-47B6-9CCE-2F16AEDFB4C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{797156AE-772E-47B6-9CCE-2F16AEDFB4C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F16D90BA-8E6F-4B76-BFED-306D8488ED12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F16D90BA-8E6F-4B76-BFED-306D8488ED12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F16D90BA-8E6F-4B76-BFED-306D8488ED12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F16D90BA-8E6F-4B76-BFED-306D8488ED12}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D79738F3-9125-4D0B-BDB5-89DE0FAB1F2F}
+	EndGlobalSection
+EndGlobal
